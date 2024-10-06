@@ -8,7 +8,7 @@
     "dev": "nodemon index.ts"
   },
   "author": "Benjamin Meier",
-  "homepage": "https://youtubdle.com",
+  "homepage": "https://Y2mate.one",
   "license": "MIT",
   "dependencies": {
     "content-disposition": "^0.5.4",

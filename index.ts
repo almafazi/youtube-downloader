@@ -48,9 +48,9 @@ app.post('/contact', async (req, res) => {
     return res.status(400).json({ message: 'All fields are required.' });
   }
   const mailOptions = {
-    from: `"YouTubdle.com" ${process.env.MAIL_USER}`,
+    from: `"Y2mate.one" ${process.env.MAIL_USER}`,
     to: process.env.MAIL_TO as string,
-    subject: "YouTubdle.com Form",
+    subject: "Y2mate.one Form",
     replyTo: email,
     text: `Nachricht von: ${email}\n\n${description}`,
   };
