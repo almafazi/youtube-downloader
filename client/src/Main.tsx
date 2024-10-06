@@ -22,12 +22,13 @@ import Search from './Search';
 import SelectFormat from './SelectFormat';
 import Sidebar, { HistoryItem } from './Sidebar';
 import Suggestions from './Suggestions';
-import { getInfos, getSuggestions } from './utils/API';
+import { fetchInfo, getInfos, getSuggestions } from './utils/API';
 import { getDownloadUrl, isYtUrl } from './utils/helpers';
 
 export default function Main() {
   const { colorMode } = useColorMode();
   const toast = useToast();
+  const [format, setFormat] = useState('MP3');
   const [downloadUrl, setDownloadUrl] = useState('');
   const [input, setInput] = useState('');
   const [isConvertionLoading, setConvertionLoading] = useState(false);
@@ -38,6 +39,7 @@ export default function Main() {
   const [error, setError] = useState(false);
   const downloadBtnRef = useRef<HTMLAnchorElement>(null);
   const [downloads, setDownloads] = useState<HistoryItem[]>([]);
+  const [youtubeId, setYouTubeId] = useState<string | null>(null);
 
   useEffect(() => {
     const storedDownloads = localStorage.getItem('downloads');
@@ -60,6 +62,16 @@ export default function Main() {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput(event.target.value);
   };
+
+  const handleFormatChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setFormat(event.target.value);
+  };
+
+  function getYouTubeId(url: string) {
+    const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+  }
 
   const reset = () => {
     setError(false);
@@ -109,11 +121,18 @@ export default function Main() {
       setError(false);
       setConvertionLoading(true);
       try {
-        const { data } = await getInfos(input);
-        const {
-          data: { videoDetails },
-        } = data;
-        setCurrentVideo(videoDetails);
+        // const response = await fetch('/dummy.json');
+        // const data = await response.json();
+        const formData = {
+          downloadMode: format == 'MP3' ? "audio" : "auto",
+          url: input
+        };
+        const { data } = await fetchInfo(formData);
+        setYouTubeId(getYouTubeId(input));
+        data.thumbnail_url = `https://img.youtube.com/vi/${getYouTubeId(input)}/mqdefault.jpg`;
+        data.format = format;
+        data.videoId = getYouTubeId(input);
+        setCurrentVideo(data);
         setConvertionLoading(false);
       } catch (err) {
         setError(true);
@@ -124,16 +143,14 @@ export default function Main() {
     }
   };
 
-  const chooseFormat = async (format: string, videoId: string) => {
+  const chooseFormat = async (data: any) => {
     setDownloadUrl('');
     try {
-      const videoInfo = await getInfos(videoId);
-      const downloadUrl = getDownloadUrl(videoId, format);
-      setDownloadUrl(downloadUrl);
+      setDownloadUrl(data.url);
       const downloadInfo = {
-        title: videoInfo.data.data.videoDetails.title,
-        imageUrl: videoInfo.data.data.videoDetails.thumbnails[0].url,
-        videoLength: videoInfo.data.data.videoDetails.lengthSeconds,
+        title: data.fileMetaData?.title,
+        imageUrl: data.thumbnail_url,
+        videoLength: "0",
         format,
         date: new Date(),
       };
@@ -162,10 +179,12 @@ export default function Main() {
             </Heading>
           </Box>
           <Search
+            handleFormatChange={handleFormatChange}
             handleChange={handleChange}
             handleSearch={handleSearch}
             error={error}
             input={input}
+            format={format}
             isLoading={
               (isConvertionLoading && !isSearchLoading) ||
               (!isConvertionLoading && isSearchLoading)

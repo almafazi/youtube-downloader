@@ -10,45 +10,45 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { CheckIcon } from '@chakra-ui/icons';
+import { useTranslation } from 'react-i18next';
 
-const features = [
-  {
-    id: 1,
-    title: 'Fast and easy to use',
-    text: `Using our YouTube downloader is the fastest and easiest way to download and save any YouTube video to MP3 or MP4. 
-    Simply copy YouTube URL, paste it on the search box and click on "Convert" button. No register/accounts needed.`,
-  },
-  {
-    id: 2,
-    title: 'Without limitation',
-    text: `Download and convert YouTube videos as much as you want without limitation and always free.`,
-  },
-  {
-    id: 3,
-    title: 'Full platforms supported',
-    text: `We support all device platforms. Easy to convert YouTube videos to MP3 files regardless of whether you are using Windows, Mac or Linux, Android or iOS.`,
-  },
-  {
-    id: 4,
-    title: 'Full file format supported',
-    text: `We support all video and audio formats conversion. You can easily convert YouTube videos to MP3, MP4, MOV and FLV.`,
-  },
-  {
-    id: 5,
-    title: '100% Safe and Clean',
-    text: `With the rising awareness of device security, people attach great importance to personal data.
-    The service is totally clean with no virus under intense supervision based on security database.`,
-  },
-];
 
 function Features() {
+  const { t } = useTranslation();
+
+  const features = [
+    {
+      id: 1,
+      title: t('features.quick_and_user_friendly.title'),
+      text: t('features.quick_and_user_friendly.text'),
+    },
+    {
+      id: 2,
+      title: t('features.unlimited_usage.title'),
+      text: t('features.unlimited_usage.text'),
+    },
+    {
+      id: 3,
+      title: t('features.supports_all_devices.title'),
+      text: t('features.supports_all_devices.text'),
+    },
+    {
+      id: 4,
+      title: t('features.multiple_format_options.title'),
+      text: t('features.multiple_format_options.text'),
+    },
+    {
+      id: 5,
+      title: t('features.completely_secure_and_reliable.title'),
+      text: t('features.completely_secure_and_reliable.text'),
+    },
+  ];
   return (
     <Box p={4}>
       <Stack spacing={2} as={Container} maxW={'3xl'} textAlign={'center'}>
-        <Heading fontSize={'3xl'}>Features</Heading>
-        <Text color={'gray.600'} fontSize={'xl'}>
-          There are already some features that have been implemented. More
-          coming soon! You can find more below.
+        <Heading fontSize={'3xl'}>{ t('featureTitle')}</Heading>
+        <Text color={'gray.600'} fontSize={'lg'}>
+            { t('feature')}        
         </Text>
       </Stack>
 

@@ -129,9 +129,9 @@ export default function Footer() {
             spacing={8}
           >
             <Stack spacing={6} align="flex-start">
-              <Box>{colorMode === 'light' ? <LogoBlack /> : <LogoWhite />}</Box>
+              <Box>{colorMode === 'light' ? <LogoBlack width="230px" /> : <LogoWhite width="230px" />}</Box>
               <Text fontSize={'sm'}>
-                © {new Date().getFullYear()} YouTubdle. All rights reserved
+                © {new Date().getFullYear()} Y2mate. All rights reserved
               </Text>
               <Stack direction={'row'} spacing={6}>
                 {socialMedia.map((media) => (
@@ -190,8 +190,8 @@ export default function Footer() {
             <Flex alignItems="center" flexDirection="column">
               <Text>
                 Made by{' '}
-                <Link href="https://bennymeier-media.de" target="_blank">
-                  bennymeier-media.de
+                <Link href="https://y2mate.one" target="_blank">
+                  Y2Mate mp3
                 </Link>
               </Text>
               <HeartIcon

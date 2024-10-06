@@ -1,0 +1,31 @@
+{
+    "welcome": "Welcome to our application",
+    "description": "Easily download and convert YouTube videos to MP3, MP4, and 3GP formats at no cost with our simple-to-use YouTube converter and downloader. Fast downloads with just a few clicks, ready for your device in seconds.",
+    "title": "Youtube to MP3 Converter & Downloader HD Fast and Free",
+    "featureTitle": "Features",
+    "downloadHistory": "Download History",
+    "searchOrPaste": "Search or paste YouTube link here",
+    "feature": "Our fast YouTube MP3 downloader already comes with several powerful features, and more are on the way! Discover what makes our service the best choice below.",
+    "features": {
+        "quick_and_user_friendly": {
+          "title": "Quick and User-Friendly",
+          "text": "Our YouTube downloader provides a fast and intuitive way to convert and download YouTube videos to MP3 or MP4. Just copy the YouTube link, paste it in the input field, and hit the \"Convert\" button—no account registration required."
+        },
+        "unlimited_usage": {
+          "title": "Unlimited Usage",
+          "text": "Enjoy unlimited YouTube video conversions and downloads at no cost, with no restrictions on how many times you can use the service."
+        },
+        "supports_all_devices": {
+          "title": "Supports All Devices",
+          "text": "Our service works across all device platforms, whether you're using Windows, Mac, Linux, Android, or iOS. You can easily convert YouTube videos to MP3, regardless of your device."
+        },
+        "multiple_format_options": {
+          "title": "Multiple Format Options",
+          "text": "We offer conversion support for a wide range of formats, including MP3, MP4, MOV, and FLV, ensuring flexibility in how you save your YouTube videos."
+        },
+        "completely_secure_and_reliable": {
+          "title": "Completely Secure and Reliable",
+          "text": "Security is a priority, and our platform is designed to be safe and free of any malware or viruses, regularly monitored and maintained for the best user experience."
+        }
+      }
+  }

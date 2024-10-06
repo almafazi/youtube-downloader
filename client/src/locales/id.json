@@ -1,0 +1,31 @@
+{
+    "welcome": "Selamat datang di aplikasi kami",
+    "description": "Unduh dan konversi video YouTube ke format MP3, MP4, dan 3GP dengan mudah tanpa biaya dengan konverter dan pengunduh YouTube yang mudah digunakan. Unduhan cepat hanya dengan beberapa klik, siap untuk perangkat Anda dalam hitungan detik.",
+    "title": "Youtube ke MP3 Converter & Downloader HD Cepat dan Gratis",
+    "featureTitle": "Fitur",
+    "downloadHistory": "Riwayat Download",
+    "searchOrPaste": "Cari atau Paste Link Youtube Disini",
+    "feature": "Pengunduh MP3 YouTube cepat kami sudah dilengkapi dengan beberapa fitur hebat, dan masih banyak lagi yang akan segera hadir! Temukan apa yang menjadikan layanan kami pilihan terbaik di bawah ini.",
+    "features": {
+    "quick_and_user_friendly": {
+      "title": "Cepat dan Mudah Digunakan",
+      "text": "Pengunduh YouTube kami menyediakan cara cepat dan intuitif untuk mengonversi dan mengunduh video YouTube ke MP3 atau MP4. Cukup salin tautan YouTube, tempel di bidang input, dan tekan tombol \"Convert\"—tanpa perlu mendaftar akun."
+    },
+    "unlimited_usage": {
+      "title": "Penggunaan Tanpa Batas",
+      "text": "Nikmati konversi dan pengunduhan video YouTube tanpa batas dan tanpa biaya, tanpa ada batasan seberapa sering kamu dapat menggunakan layanan ini."
+    },
+    "supports_all_devices": {
+      "title": "Mendukung Semua Perangkat",
+      "text": "Layanan kami berfungsi di semua platform perangkat, baik kamu menggunakan Windows, Mac, Linux, Android, atau iOS. Kamu dapat dengan mudah mengonversi video YouTube ke MP3, terlepas dari perangkatmu."
+    },
+    "multiple_format_options": {
+      "title": "Opsi Format Beragam",
+      "text": "Kami menawarkan dukungan konversi untuk berbagai format, termasuk MP3, MP4, MOV, dan FLV, memastikan fleksibilitas dalam cara kamu menyimpan video YouTube."
+    },
+    "completely_secure_and_reliable": {
+      "title": "Sangat Aman dan Andal",
+      "text": "Keamanan adalah prioritas, dan platform kami dirancang untuk aman dan bebas dari malware atau virus, dipantau dan dipelihara secara berkala untuk pengalaman pengguna yang terbaik."
+    }
+  }
+  }

@@ -4,6 +4,10 @@ import { host } from './helpers';
 export const API = axios.create({
   baseURL: host,
   responseType: 'json',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  },
 });
 
 export const getFormats = async (videoURL: string) => {
@@ -21,6 +25,10 @@ export const getSuggestions = async (
 
 export const getInfos = async (url: string) => {
   return await API.get(`/metainfo?url=${url}`);
+};
+
+export const fetchInfo = async (formData: { downloadMode: string, url: string }) => {
+  return await API.post(`/`, formData);
 };
 
 export const sendContactForm = async (formData: { email: string, issueType: string, description: string }) => {
