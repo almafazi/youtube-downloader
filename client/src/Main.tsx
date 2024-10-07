@@ -138,6 +138,14 @@ export default function Main() {
         setCurrentVideo(data);
         setConvertionLoading(false);
       } catch (err) {
+        toast({
+          title: 'Max. Video Duration is 50 Minutes',
+          description:
+            'Please choose other video.',
+          status: 'error',
+          duration: 9000,
+          isClosable: true,
+        });
         setError(true);
         setConvertionLoading(false);
       }
