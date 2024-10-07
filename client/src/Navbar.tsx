@@ -57,7 +57,19 @@ export default function Navbar() {
     <>
       <Helmet>
         <title>{t('title')}</title>
+        <meta
+          property="og:title"
+          content={t('title')}
+        />
+        <meta
+          property="og:description"
+          content={t('description')}
+        />
         <meta name="description" content={t('description')} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={t('title')} />
+        <meta name="twitter:description" content={t('description')} />
+        <link rel="canonical" href={`https://y2mate.one${t('langCode')}`} />
       </Helmet>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
