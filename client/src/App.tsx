@@ -1,4 +1,4 @@
-import { ChakraProvider, Switch, theme } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import Navbar from './Navbar';
 import Main from './Main';
 import Footer from './Footer';
@@ -23,6 +23,14 @@ const LanguageSwitcher = () => {
 
   return null; // No need to render anything
 };
+
+const theme = extendTheme({
+  config: {
+    useSystemColorMode: false,
+    initialColorMode: "dark"
+  }
+});
+
 export const App = () => {
   return (
     <I18nextProvider i18n={i18n}>

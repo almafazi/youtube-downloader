@@ -20,7 +20,7 @@ export const isLocalHost = window.location.hostname === 'localhost';
  */
 export const host = isLocalHost
   ? 'http://localhost:9001/'
-  : `https://${window.location.hostname}`;
+  : `https://yt.y2mate.one/`;
 
 /**
  * Get download-url from YouTube-Video.
