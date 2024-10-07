@@ -10,6 +10,7 @@ import {
   AlertDescription,
   AlertIcon,
   AlertTitle,
+  Flex,
 } from '@chakra-ui/react';
 import { useEffect, useRef, useState } from 'react';
 import Features from './Features';
@@ -24,6 +25,7 @@ import Sidebar, { HistoryItem } from './Sidebar';
 import Suggestions from './Suggestions';
 import { fetchInfo, getInfos, getSuggestions } from './utils/API';
 import { getDownloadUrl, isYtUrl } from './utils/helpers';
+import { useTranslation } from 'react-i18next';
 
 export default function Main() {
   const { colorMode } = useColorMode();
@@ -41,6 +43,7 @@ export default function Main() {
   const [downloads, setDownloads] = useState<HistoryItem[]>([]);
   const [youtubeId, setYouTubeId] = useState<string | null>(null);
 
+  const { t } = useTranslation();
   useEffect(() => {
     const storedDownloads = localStorage.getItem('downloads');
     if (storedDownloads && JSON.parse(storedDownloads)?.length > 0) {
@@ -139,7 +142,9 @@ export default function Main() {
         setConvertionLoading(false);
       }
     } else {
-      fetchSuggestions();
+      setError(true);
+      setConvertionLoading(false);
+      //fetchSuggestions();
     }
   };
 
@@ -173,11 +178,12 @@ export default function Main() {
       />
       <Container maxW="container.md">
         <Box textAlign="center" fontSize="xl">
-          <Box mt="5" mb="5">
-            <Heading size="2xl" mb="2">
-              {colorMode === 'light' ? <LogoBlack /> : <LogoWhite />}
-            </Heading>
-          </Box>
+          <Flex justifyContent="center" alignItems="center" mt="8">
+              {colorMode === 'light' ? <LogoBlack width='85%' /> : <LogoWhite width='85%' />}
+          </Flex>
+          <Heading as="h1" size="md" mt="8" mb="7"> 
+            {t('h1')}
+          </Heading> 
           <Search
             handleFormatChange={handleFormatChange}
             handleChange={handleChange}

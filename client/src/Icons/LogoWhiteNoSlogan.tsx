@@ -5,7 +5,7 @@ const LogoWhiteNoSlogan = () => {
     <Image
       src="/logo-dark.png"
       alt="Logo"
-      width="180px"
+      width="140px"
     />
   );
 };

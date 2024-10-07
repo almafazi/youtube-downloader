@@ -5,7 +5,7 @@ const LogoBlackNoSlogan = () => {
     <Image
       src="/logo-light.png"
       alt="Logo"
-      width="180px"
+      width="140px"
     />
   );
 };

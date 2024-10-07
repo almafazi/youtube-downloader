@@ -3,6 +3,7 @@
     "description": "Unduh dan konversi video YouTube ke format MP3, MP4, dan 3GP dengan mudah tanpa biaya dengan konverter dan pengunduh YouTube yang mudah digunakan. Unduhan cepat hanya dengan beberapa klik, siap untuk perangkat Anda dalam hitungan detik.",
     "title": "Youtube ke MP3 Converter & Downloader HD Cepat dan Gratis",
     "featureTitle": "Fitur",
+    "h1": "YOUTUBE KE MP3 KONVERTER SUPER CEPAT",
     "downloadHistory": "Riwayat Download",
     "searchOrPaste": "Cari atau Paste Link Youtube Disini",
     "feature": "Pengunduh MP3 YouTube cepat kami sudah dilengkapi dengan beberapa fitur hebat, dan masih banyak lagi yang akan segera hadir! Temukan apa yang menjadikan layanan kami pilihan terbaik di bawah ini.",
@@ -27,5 +28,51 @@
       "title": "Sangat Aman dan Andal",
       "text": "Keamanan adalah prioritas, dan platform kami dirancang untuk aman dan bebas dari malware atau virus, dipantau dan dipelihara secara berkala untuk pengalaman pengguna yang terbaik."
     }
-  }
+  },
+  "comingsoon": {
+        "pagination": {
+            "title": "Navigasi Halaman",
+            "text": "Navigasi halaman yang menampilkan lima video dalam satu waktu, membuat pengalaman pencarian Anda lebih teratur."
+        },
+        "playlist_downloads": {
+            "title": "Unduh Playlist",
+            "text": "Kemudahan untuk mengunduh seluruh playlist dari YouTube secara otomatis."
+        },
+        "progress_bar": {
+            "title": "Tampilan Progressbar",
+            "text": "Lihat progres pengunduhan Anda secara langsung melalui tampilan progress bar."
+        },
+        "quality_choice": {
+            "title": "Pilihan Kualitas",
+            "text": "Pilih kualitas video yang ingin Anda unduh: 480p, 720p, 1080p, hingga 4K."
+        },
+        "download_history_cache": {
+            "title": "Riwayat Unduhan",
+            "text": "Simpan riwayat unduhan Anda di cache untuk akses yang lebih cepat dan efisien."
+        },
+        "batch_download": {
+            "title": "Unduh Banyak Video",
+            "text": "Unduh beberapa video sekaligus dengan memasukkan banyak URL dan unduhan otomatis."
+        },
+        "video_preview": {
+            "title": "Pratinjau Video",
+            "text": "Lihat pratinjau video sebelum Anda memutuskan untuk mengunduhnya."
+        },
+        "edit_video_points": {
+            "title": "Edit Titik Awal dan Akhir Video",
+            "text": "Edit titik awal dan akhir video yang ingin diunduh sesuai kebutuhan Anda."
+        },
+        "feature_request_form": {
+            "title": "Formulir Kontak",
+            "text": "Ajukan saran fitur baru atau laporkan bug melalui formulir kontak kami."
+        },
+        "chrome_extension": {
+            "title": "Ekstensi Chrome",
+            "text": "Kami sedang mempertimbangkan untuk meluncurkan ekstensi Chrome. Apakah ini memungkinkan?"
+        },
+        "electron_app": {
+            "title": "Aplikasi Desktop",
+            "text": "Unduh aplikasi desktop berbasis Electron dalam format .exe untuk pengguna Windows."
+        }
+    }
   }

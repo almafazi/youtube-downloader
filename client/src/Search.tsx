@@ -24,28 +24,47 @@ const Search = (props: Props) => {
 
   return (
     <Box mt="2" mb="2">
-      <Flex gridGap="2">
-        <Input
-          isInvalid={error}
-          placeholder={t('searchOrPaste')}
-          onChange={handleChange}
-          value={input}
-          onKeyDown={handleKeydown}
-        />
-        <Select value={format} onChange={handleFormatChange} width="120px">
-          <option value="MP3">MP3</option>
-          <option value="MP4">MP4</option>
-        </Select>
-        <Button
-          px={6}
-          onClick={handleSearch}
-          isLoading={isLoading}
-          loadingText="Converting..."
-        >
-          Download
-        </Button>
-      </Flex>
-    </Box>
+  <Flex 
+    gridGap="2" 
+    direction={['column', 'row']} // Column layout on mobile, row layout on desktop
+  >
+    <Input
+      isInvalid={error}
+      placeholder={t('searchOrPaste')}
+      onChange={handleChange}
+      value={input}
+      onKeyDown={handleKeydown}
+    />
+    
+    {/* Wrap Select and Button in a Flex container */}
+    <Flex 
+      width={['100%', 'auto']}
+      justify={['space-between', 'space-between']} // Justify space between on mobile, default for desktop
+      mt={['2', '0']} // Add margin top only on mobile
+      gridGap={['2', '2']} // Add space between items on mobile, no gap on desktop
+    >
+      <Select 
+        value={format} 
+        onChange={handleFormatChange} 
+        width={['48%', '120px']} // 48% width on mobile (to ensure both fit), 120px on desktop
+      >
+        <option value="MP3">MP3</option>
+        <option value="MP4">MP4</option>
+      </Select>
+      
+      <Button
+        px={6}
+        onClick={handleSearch}
+        isLoading={isLoading}
+        loadingText="Converting..."
+        width={['48%', 'auto']} // 48% width on mobile, auto width on desktop
+      >
+        Download
+      </Button>
+    </Flex>
+  </Flex>
+</Box>
+
   );
 };
 

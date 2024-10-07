@@ -3,6 +3,7 @@
     "description": "Easily download and convert YouTube videos to MP3, MP4, and 3GP formats at no cost with our simple-to-use YouTube converter and downloader. Fast downloads with just a few clicks, ready for your device in seconds.",
     "title": "Youtube to MP3 Converter & Downloader HD Fast and Free",
     "featureTitle": "Features",
+    "h1": "FAST YOUTUBE TO MP3 CONVERTER",
     "downloadHistory": "Download History",
     "searchOrPaste": "Search or paste YouTube link here",
     "feature": "Our fast YouTube MP3 downloader already comes with several powerful features, and more are on the way! Discover what makes our service the best choice below.",
@@ -27,5 +28,51 @@
           "title": "Completely Secure and Reliable",
           "text": "Security is a priority, and our platform is designed to be safe and free of any malware or viruses, regularly monitored and maintained for the best user experience."
         }
-      }
+      },
+      "comingsoon": {
+        "pagination": {
+            "title": "Pagination",
+            "text": "Page navigation that displays five videos at a time, making your search experience more organized."
+        },
+        "playlist_downloads": {
+            "title": "Playlist Downloads",
+            "text": "Easily download entire playlists from YouTube automatically."
+        },
+        "progress_bar": {
+            "title": "Download Progress Bar",
+            "text": "See the progress of your downloads in real-time through the progress bar."
+        },
+        "quality_choice": {
+            "title": "Quality Choice",
+            "text": "Select the video quality you want to download: 480p, 720p, 1080p, up to 4K."
+        },
+        "download_history_cache": {
+            "title": "Download History",
+            "text": "Store your download history in cache for faster and more efficient access."
+        },
+        "batch_download": {
+            "title": "Batch Download",
+            "text": "Download multiple videos at once by entering multiple URLs for automatic downloading."
+        },
+        "video_preview": {
+            "title": "Video Preview",
+            "text": "Preview the video before deciding to download it."
+        },
+        "edit_video_points": {
+            "title": "Edit Video Start and End Points",
+            "text": "Edit the start and end points of the video to download according to your needs."
+        },
+        "feature_request_form": {
+            "title": "Contact Form",
+            "text": "Submit suggestions for new features or report bugs via our contact form."
+        },
+        "chrome_extension": {
+            "title": "Chrome Extension",
+            "text": "We are considering launching a Chrome extension. Is this possible?"
+        },
+        "electron_app": {
+            "title": "Desktop App",
+            "text": "Download the Electron-based desktop app in .exe format for Windows users."
+        }
+    }
   }
