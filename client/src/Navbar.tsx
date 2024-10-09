@@ -11,6 +11,7 @@ import {
   Menu,
   MenuList,
   MenuItem,
+  Text,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import LogoBlackNoSlogan from './Icons/LogoBlackNoSlogan';
@@ -20,6 +21,7 @@ import { ChevronDownIcon } from '@chakra-ui/icons';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import {Helmet} from "react-helmet";
+import BlogNewsIcon from './Icons/BlogNewsIcon';
 
 // const Links = ['Dashboard', 'Projects', 'Team'];
 
@@ -109,24 +111,31 @@ export default function Navbar() {
           </HStack>
           
           <Flex alignItems={'center'}>
+            <Link href="/blog" mr={5} isExternal display="flex"
+      alignItems="center"
+      textDecoration="none" 
+      color={'teal.200'}
+      _hover={{ color: 'teal.500' }}  >
+                  <BlogNewsIcon mr="2" w={5} h={5} />       <Text>Blog</Text>
+            </Link>
             <Menu>
               <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-                {i18n.language === 'id' ? 'Indonesia' : 'English'}
+                {i18n.language === 'id' ? 'ID' : 'EN'}
               </MenuButton>
               <MenuList>
-                <MenuItem 
-                  onClick={() => changeLanguage('id')}
-                  bg={i18n.language === 'id' ? 'gray.600' : 'inherit'} // Highlight if selected
-                  color={i18n.language === 'id' ? 'white' : 'inherit'}
-                >
-                  Indonesia
-                </MenuItem>
                 <MenuItem 
                   onClick={() => changeLanguage('en')}
                   bg={i18n.language === 'en' ? 'gray.600' : 'inherit'} // Highlight if selected
                   color={i18n.language === 'en' ? 'white' : 'inherit'}
                 >
                   English
+                </MenuItem>
+                <MenuItem 
+                  onClick={() => changeLanguage('id')}
+                  bg={i18n.language === 'id' ? 'gray.600' : 'inherit'} // Highlight if selected
+                  color={i18n.language === 'id' ? 'white' : 'inherit'}
+                >
+                  Indonesia
                 </MenuItem>
               </MenuList>
             </Menu>
