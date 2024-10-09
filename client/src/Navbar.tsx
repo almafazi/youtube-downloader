@@ -111,7 +111,7 @@ export default function Navbar() {
           </HStack>
           
           <Flex alignItems={'center'}>
-            <Link href="/blog" mr={5} isExternal display="flex"
+            <Link href="/blog/" mr={5} display="flex"
       alignItems="center"
       textDecoration="none" 
       color={'teal.200'}
