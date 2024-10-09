@@ -41,6 +41,7 @@ export const App = () => {
           {/* Route definition */}
           <Route path="/id" element={<><Navbar /><Main /><Footer /></>} />
           <Route path="/" element={<><Navbar /><Main /><Footer /></>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </ChakraProvider>
