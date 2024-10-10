@@ -25,12 +25,14 @@ import {
   CardFooter,
   Heading,
   ButtonGroup,
+  useToast,
 } from '@chakra-ui/react';
 import {
   decodeStr,
   formats,
   formatSecondsToMinutesAndSeconds,
 } from './utils/helpers';
+import { fetchInfo } from './utils/API';
 
 interface Props {
   data: any;
@@ -38,6 +40,44 @@ interface Props {
 }
 
 export default function SuggestionV2(props: Props) {
+
+  const toast = useToast();
+
+  async function fetchData(format: string, id: string) {
+    try {
+        const formData = {
+            downloadMode: format === '.mp3' ? "audio" : "auto",
+            url: `https://www.youtube.com/watch?v=${id}`
+        };
+        
+        const { data } = await fetchInfo(formData);  // Assuming fetchInfo is a promise-based function
+        toast({
+          title: 'Starting download...',
+          description:
+            'Starting download file, '+decodeStr(snippet.title),
+          status: 'success',
+          duration: 3000,
+          isClosable: true,
+        });
+        if (data.url) {
+          window.location.href = data.url;  // This will navigate to the URL in the same tab
+      }
+        
+
+    } catch (error) {
+        toast({
+          title: 'Download failed',
+          description:
+            'Cant start download '+decodeStr(snippet.title),
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+        });
+
+        return null;  // Return null or handle error accordingly
+    }
+}
+
   const {
     chooseFormat,
     data: { snippet, id },
@@ -50,7 +90,7 @@ export default function SuggestionV2(props: Props) {
       borderColor={useColorModeValue('gray.100', 'gray.600')}
     >
       <CardHeader>
-        <Heading marginBottom="1" size="md">
+        <Heading marginBottom="1" size="sm">
           {decodeStr(snippet.title)}
         </Heading>
         <Text fontSize="small" wordBreak="break-word" lineHeight="tight">
@@ -65,7 +105,7 @@ export default function SuggestionV2(props: Props) {
               Length: {formatSecondsToMinutesAndSeconds(snippet.lengthSeconds)}
             </Badge> */}
             <Badge textTransform="none">
-              Uploaded: {new Date(snippet.publishedAt).toLocaleDateString()}
+              Duration: {snippet.publishedAt}
             </Badge>
           </Flex>
         </Box>
@@ -83,13 +123,15 @@ export default function SuggestionV2(props: Props) {
         <ButtonGroup
           gap="1"
           flexWrap="wrap"
-          justifyContent="space-between"
+          justifyContent="center"
           width="100%"
         >
           <Menu>
             <MenuButton
+              width="100%"
               background={useColorModeValue('gray.300', 'gray.700')}
               as={Button}
+              mb={2}
               leftIcon={<DownloadIcon />}
               rightIcon={<ChevronDownIcon />}
               color={useColorModeValue('gray.800', 'white')}
@@ -97,10 +139,10 @@ export default function SuggestionV2(props: Props) {
               Download
             </MenuButton>
             <MenuList color={useColorModeValue('gray.800', 'gray.100')}>
-              {formats.map((format) => (
+              {formats.filter(item => item.format === '.mp4' || item.format === '.mp3').map((format) => (
                 <MenuItem
                   key={format.text}
-                  onClick={() => chooseFormat(format.format, id.videoId)}
+                  onClick={() => fetchData(format.format, id.videoId)}
                 >
                   {format.text}
                 </MenuItem>
@@ -108,6 +150,7 @@ export default function SuggestionV2(props: Props) {
             </MenuList>
           </Menu>
           <Button
+            width="100%"
             background={useColorModeValue('gray.300', 'gray.700')}
             rel="noreferrer"
             href={`https://www.youtube.com/watch?v=${id.videoId}`}

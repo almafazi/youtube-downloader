@@ -34,3 +34,13 @@ export const fetchInfo = async (formData: { downloadMode: string, url: string })
 export const sendContactForm = async (formData: { email: string, issueType: string, description: string }) => {
   return await API.post(`/contact`, formData);
 };
+
+export const getSearch = async (
+  searchQuery: string,
+  nextPageToken: string = ''
+) => {
+  return await API.post('/search', {
+    query: searchQuery,
+    next: nextPageToken
+  });
+};

@@ -245,8 +245,8 @@ export default function Footer() {
             <Text>Y2Mate MP3</Text>
             <Flex alignItems="center" gridGap={2}>
               <EmailIcon />{' '}
-              <Link href="mailto:auroradigitalid@gmail.com">
-                auroradigitalid@gmail.com
+              <Link href="mailto:y2mateone@gmail.com">
+              y2mateone@gmail.com
               </Link>
             </Flex>
           </ModalBody>

@@ -13,27 +13,30 @@ export default function Suggestions(props: Props) {
   return (
     <Box>
       {!!data.length && (
-        <Box mt="5">
-          <Heading textAlign="center">Suggestions</Heading>
+        <Box mt="10" mb="5">
+          <Heading as="h4" size={'lg'} textAlign="center">Search Results</Heading>
         </Box>
       )}
       {isLoading && <SuggestionsSkeleton />}
       {!isLoading && (
         <SimpleGrid
-          gridTemplateColumns="repeat(auto-fit, minmax(max(290px, 40%), 1fr))"
-          spacing={10}
-          my="5"
-        >
-          {data.map((suggestion) => {
-            return (
-              <Suggestion
-                data={suggestion}
-                key={suggestion.id.videoId}
-                chooseFormat={chooseFormat}
-              />
-            );
-          })}
-        </SimpleGrid>
+        gridTemplateColumns={{
+          base: "repeat(2, 1fr)", // For mobile (base) - 2 columns
+          md: "repeat(3, 1fr)",   // For medium screens (PC) - 3 columns
+        }}
+        spacing={3}
+        my="5"
+      >
+        {data.map((suggestion) => {
+          return (
+            <Suggestion
+              data={suggestion}
+              key={suggestion.id.videoId}
+              chooseFormat={chooseFormat}
+            />
+          );
+        })}
+      </SimpleGrid>
       )}
     </Box>
   );

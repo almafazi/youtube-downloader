@@ -23,7 +23,7 @@ import Search from './Search';
 import SelectFormat from './SelectFormat';
 import Sidebar, { HistoryItem } from './Sidebar';
 import Suggestions from './Suggestions';
-import { fetchInfo, getInfos, getSuggestions } from './utils/API';
+import { fetchInfo, getInfos, getSearch, getSuggestions } from './utils/API';
 import { getDownloadUrl, isYtUrl } from './utils/helpers';
 import { useTranslation } from 'react-i18next';
 
@@ -83,6 +83,55 @@ export default function Main() {
     setConvertionLoading(false);
   }
 
+  const reformatData = (data:any) => {
+      return data.map((item:any)=> ({
+          id: {
+              videoId: item.id
+          },
+          snippet: {
+              title: item.title,
+              description: item.channelTitle,
+              publishedAt: item.length.simpleText,
+              thumbnails: {
+                  medium: {
+                      url: item.thumbnail.thumbnails[0].url
+                  }
+              }
+          }
+      }));
+  };
+
+  const fetchSuggestions2 = async () => {
+    setError(false);
+    setSearchLoading(true);
+    try {
+      const { data } = await getSearch(input, pagingInfo?.nextPageToken);
+      // setPagingInfo(data.pagingInfo);
+      const formattedData = reformatData(data);
+      setSuggestions((previousSuggestions) => [
+        ...previousSuggestions,
+        ...formattedData,
+      ]);
+      setSearchLoading(false);
+    } catch (err) {
+      setError(true);
+      // if (err && err.status === 403) {
+      toast({
+        title: 'YouTube Search Limit exceeded',
+        description:
+          'You can search again tomorrow. Just paste the URL into the searchfield. This will still works. The YouTube-API allows only a few search requests.',
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      });
+      // }
+      setTimeout(() => {
+        reset();
+      }, 2000);
+      console.error(err);
+    }
+  };
+
   const fetchSuggestions = async () => {
     setError(false);
     setSearchLoading(true);
@@ -115,6 +164,8 @@ export default function Main() {
 
 
   const handleSearch = async () => {
+    setSuggestions([]);
+    setCurrentVideo(null);
     const isYouTubeUrl = isYtUrl(input);
     if (!input) {
       setError(true);
@@ -153,6 +204,7 @@ export default function Main() {
       setError(true);
       setConvertionLoading(false);
       //fetchSuggestions();
+      fetchSuggestions2();
     }
   };
 
@@ -216,7 +268,7 @@ export default function Main() {
           chooseFormat={chooseFormat}
           isLoading={isSearchLoading}
         />
-        {!!suggestions.length && (
+        {/* {!!suggestions.length && (
           <Button
             onClick={fetchSuggestions}
             isLoading={isSearchLoading}
@@ -226,7 +278,7 @@ export default function Main() {
           >
             Load More
           </Button>
-        )}
+        )} */}
         <Features />
         <FeaturesComingSoon />
       </Container>
