@@ -17,7 +17,7 @@ import {
   Divider,
 } from '@chakra-ui/react';
 import { DeleteIcon, DownloadIcon } from '@chakra-ui/icons';
-import { formatSecondsToMinutesAndSeconds } from './utils/helpers';
+import { formatDate, formatSecondsToMinutesAndSeconds } from './utils/helpers';
 import { useTranslation } from 'react-i18next';
 
 export interface HistoryItem {
@@ -56,7 +56,7 @@ const DownloadHistoryItem: React.FC<{ item: HistoryItem }> = React.memo(
             {formatSecondsToMinutesAndSeconds(parseInt(item.videoLength))}
           </Text> */}
           <Text fontSize="xs" title={new Date(item.date).toUTCString()}>
-            Downloaded: {new Date(item.date).toLocaleDateString()}
+            Date: {formatDate(new Date(item.date))}
           </Text>
         </VStack>
       </Flex>
@@ -94,7 +94,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
                     <DownloadIcon width="75px" height="75px" />
                   </Heading>
                 )}
-                {historyData.map((item, index) => (
+                {historyData.sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime()).map((item, index) => (
                   <Box key={index}>
                     <DownloadHistoryItem item={item} />
                     <Divider />

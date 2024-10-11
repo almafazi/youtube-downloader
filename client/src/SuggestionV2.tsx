@@ -36,14 +36,20 @@ import { fetchInfo } from './utils/API';
 
 interface Props {
   data: any;
-  chooseFormat: (format: string, videoId: string) => void;
+  chooseFormat: (data: any) => void;
 }
 
 export default function SuggestionV2(props: Props) {
 
   const toast = useToast();
 
+  const {
+    chooseFormat,
+    data: { snippet, id },
+  } = props;
+
   async function fetchData(format: string, id: string) {
+    
     toast({
       title: 'Starting download...',
       description:
@@ -54,13 +60,15 @@ export default function SuggestionV2(props: Props) {
     });
 
     try {
+
         const formData = {
             downloadMode: format === '.mp3' ? "audio" : "auto",
             url: `https://www.youtube.com/watch?v=${id}`
         };
         
         const { data } = await fetchInfo(formData);  // Assuming fetchInfo is a promise-based function
-        
+        data.thumbnail_url = snippet.thumbnails.medium.url;
+        chooseFormat(data)
         if (data.url) {
           window.location.href = data.url;  // This will navigate to the URL in the same tab
       }
@@ -70,7 +78,7 @@ export default function SuggestionV2(props: Props) {
         toast({
           title: 'Download failed',
           description:
-            'Cant start download '+decodeStr(snippet.title),
+            'MAX Duration is 50 Minute. '+decodeStr(snippet.title),
           status: 'error',
           duration: 3000,
           isClosable: true,
@@ -80,10 +88,6 @@ export default function SuggestionV2(props: Props) {
     }
 }
 
-  const {
-    chooseFormat,
-    data: { snippet, id },
-  } = props;
   return (
     <Card
       borderRadius="lg"

@@ -7,7 +7,7 @@ interface Props {
   data: any[];
   isLoading: boolean;
   input: string,
-  chooseFormat: (format: string, videoId: string) => void;
+  chooseFormat: (data: any) => void;
 }
 export default function Suggestions(props: Props) {
   const { data, isLoading, chooseFormat, input } = props;
