@@ -101,17 +101,19 @@ export default function Main() {
       }));
   };
 
-  const fetchSuggestions2 = async () => {
+  const fetchSuggestions2 = async (loadmore = false) => {
     setError(false);
     setSearchLoading(true);
     try {
-      const { data } = await getSearch(input, pagingInfo?.nextPageToken);
-      // setPagingInfo(data.pagingInfo);
-      const formattedData = reformatData(data);
+      const { data } = await getSearch(input, pagingInfo?.nextPage, loadmore);
+      setPagingInfo(data);
+      
+      const formattedData = reformatData(data.items);
       setSuggestions((previousSuggestions) => [
         ...previousSuggestions,
         ...formattedData,
       ]);
+      
       setSearchLoading(false);
     } catch (err) {
       setError(true);
@@ -166,6 +168,7 @@ export default function Main() {
   const handleSearch = async () => {
     setSuggestions([]);
     setCurrentVideo(null);
+    setPagingInfo([]);
     const isYouTubeUrl = isYtUrl(input);
     if (!input) {
       setError(true);
@@ -262,15 +265,19 @@ export default function Main() {
             isLoading={isConvertionLoading}
           />
         </Box>
-        {pagingInfo?.totalResults === 0 && <NothingFoundAlert />}
+        {pagingInfo?.items?.length === 0 && <NothingFoundAlert />}
         <Suggestions
           data={suggestions}
           chooseFormat={chooseFormat}
           isLoading={isSearchLoading}
+          input={input}
         />
-        {/* {!!suggestions.length && (
+        {!!suggestions.length && (
           <Button
-            onClick={fetchSuggestions}
+            onClick={() => {
+                fetchSuggestions2(true)
+              }
+            }
             isLoading={isSearchLoading}
             loadingText="Loading more..."
             colorScheme="gray"
@@ -278,7 +285,7 @@ export default function Main() {
           >
             Load More
           </Button>
-        )} */}
+        )}
         <Features />
         <FeaturesComingSoon />
       </Container>

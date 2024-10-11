@@ -44,6 +44,15 @@ export default function SuggestionV2(props: Props) {
   const toast = useToast();
 
   async function fetchData(format: string, id: string) {
+    toast({
+      title: 'Starting download...',
+      description:
+        'Starting download file, '+decodeStr(snippet.title),
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    });
+
     try {
         const formData = {
             downloadMode: format === '.mp3' ? "audio" : "auto",
@@ -51,14 +60,7 @@ export default function SuggestionV2(props: Props) {
         };
         
         const { data } = await fetchInfo(formData);  // Assuming fetchInfo is a promise-based function
-        toast({
-          title: 'Starting download...',
-          description:
-            'Starting download file, '+decodeStr(snippet.title),
-          status: 'success',
-          duration: 3000,
-          isClosable: true,
-        });
+        
         if (data.url) {
           window.location.href = data.url;  // This will navigate to the URL in the same tab
       }

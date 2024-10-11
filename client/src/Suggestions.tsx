@@ -1,20 +1,22 @@
 import { Box, SimpleGrid, Heading } from '@chakra-ui/react';
 import Suggestion from './SuggestionV2';
 import SuggestionsSkeleton from './SuggestionsSkeleton';
+import { decodeStr } from './utils/helpers';
 
 interface Props {
   data: any[];
   isLoading: boolean;
+  input: string,
   chooseFormat: (format: string, videoId: string) => void;
 }
 export default function Suggestions(props: Props) {
-  const { data, isLoading, chooseFormat } = props;
+  const { data, isLoading, chooseFormat, input } = props;
 
   return (
     <Box>
       {!!data.length && (
         <Box mt="10" mb="5">
-          <Heading as="h4" size={'lg'} textAlign="center">Search Results</Heading>
+          <Heading as="h4" size={'lg'} textAlign="center">{decodeStr(input)}</Heading>
         </Box>
       )}
       {isLoading && <SuggestionsSkeleton />}

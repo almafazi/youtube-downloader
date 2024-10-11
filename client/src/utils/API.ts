@@ -37,10 +37,12 @@ export const sendContactForm = async (formData: { email: string, issueType: stri
 
 export const getSearch = async (
   searchQuery: string,
-  nextPageToken: string = ''
+  nextPageToken: any,
+  loadmore: boolean
 ) => {
   return await API.post('/search', {
     query: searchQuery,
-    next: nextPageToken
+    next: nextPageToken,
+    loadmore: loadmore
   });
 };
