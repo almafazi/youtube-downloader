@@ -1,0 +1,96 @@
+#RewriteEngine on
+
+# Redirect www to non-www
+#RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+#RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+#RewriteRule ^/index\.html$ - [L]
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ /index.html [L]
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Serve existing files or directories directly
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Redirect all other requests to index.html for React routing
+    RewriteRule ^ index.html [L]
+</IfModule>
+
+# Caching for static files to improve performance
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Set expiration for image files
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    
+    # Set expiration for CSS files
+    ExpiresByType text/css "access plus 1 month"
+    
+    # Set expiration for JavaScript files
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType application/x-javascript "access plus 1 year"
+    
+    # Set expiration for font files
+    ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    
+    # Set expiration for SVG files
+    ExpiresByType image/svg+xml "access plus 1 year"
+</IfModule>
+
+# Custom error pages (optional)
+# Handle 404 errors by serving index.html
+ErrorDocument 404 /index.html
+
+# Set headers for security and performance
+<IfModule mod_headers.c>
+    # Enable CORS for all domains (adjust this if necessary)
+    Header set Access-Control-Allow-Origin "*"
+
+    # Prevent MIME type sniffing
+    Header set X-Content-Type-Options "nosniff"
+    
+    # Enable browser caching
+    Header set Cache-Control "max-age=31536000, public"
+</IfModule>
+
+# Gzip compression for text files to reduce file sizes (optional)
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript
+</IfModule>
+
+
+#RewriteRule ^tos$ tos.php
+#RewriteRule ^privacy-policy$ privacy.php
+#RewriteRule ^contact$ contact.php
+#RewriteRule ^about$ about.php
+#RewriteRule ^faq$ faq.php
+
+#RewriteRule ^en/$ localization/en.php [L]
+#RewriteRule ^de/$ localization/de.php [L]
+#RewriteRule ^es/$ localization/es.php [L]
+#RewriteRule ^fr/$ localization/fr.php [L]
+#RewriteRule ^hi/$ localization/hi.php [L]
+#RewriteRule ^id/$ localization/id.php [L]
+#RewriteRule ^it/$ localization/it.php [L]
+#RewriteRule ^ja/$ localization/ja.php [L]
+#RewriteRule ^my/$ localization/my.php [L]
+#RewriteRule ^pt/$ localization/pt.php [L]
+#RewriteRule ^vn/$ localization/vn.php [L]
+#RewriteRule ^ch/$ localization/ch.php [L]
+
+
+#RewriteRule ^([a-z]{2})/search/(.*)$ localization/$1.php?query=$2 [L]
+#RewriteRule ^([a-z]{2})/youtube/(.*)$ localization/$1.php?query=https://www.youtube.com/watch?v=$2 [L]
