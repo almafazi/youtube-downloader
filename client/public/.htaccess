@@ -12,20 +12,20 @@
     RewriteCond %{REQUEST_URI} ^/sitemap\.xml$
     RewriteRule ^ - [L]
 
-    # Serve index.html for the /id and /en-ENwRL routes, but only if the file or directory doesn't exist
+    # Serve index.html for /id and /en-ENwRL
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(id|en-ENwRL)(/.*)?$ index.html [QSA,L]
 
-    # Serve index.html for all other routes but return a 404 status if not /id or /en-ENwRL
+    # Serve index.html for all other routes but return 404 status if not /id or /en-ENwRL
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^ index.html [QSA,L]
 
-    # Set the 404 status for routes that are not /id or /en-ENwRL
+    # Set 404 status for any unmatched routes and serve the 404.html file
     RewriteCond %{REQUEST_URI} !^/(id|en-ENwRL)(/.*)?$
     RewriteRule .* - [R=404,L]
 
-    # Optional: Add CORS headers for API or assets
-    Header always set Access-Control-Allow-Origin "*"
+    # Serve custom 404.html for server errors
+    ErrorDocument 404 /404.html
 </IfModule>
