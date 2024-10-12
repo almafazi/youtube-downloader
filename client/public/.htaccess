@@ -1,31 +1,17 @@
 <IfModule LiteSpeed>
     RewriteEngine On
-    RewriteBase /
 
-    # Redirect from root ("/") to "/en-ENwRL"
-    RewriteRule ^/?$ en-ENwRL [R=301,L]
+    # Redirect / to /en-ENwRL
+    RewriteRule ^$ /en-ENwRL [L,R=301]
 
-    # Exclude specific files from being processed by React routing
-    RewriteCond %{REQUEST_URI} ^/manifest\.json$ [OR]
-    RewriteCond %{REQUEST_URI} ^/favicon\.ico$ [OR]
-    RewriteCond %{REQUEST_URI} ^/robots\.txt$ [OR]
-    RewriteCond %{REQUEST_URI} ^/sitemap\.xml$
-    RewriteRule ^ - [L]
-
-    # Serve index.html for /id and /en-ENwRL
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(id|en-ENwRL)(/.*)?$ index.html [QSA,L]
-
-    # Serve index.html for all other routes but return 404 status if not /id or /en-ENwRL
+    # Redirect everything to index.html, except for actual files or directories
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^ index.html [QSA,L]
 
-    # Set 404 status for any unmatched routes and serve the 404.html file
-    RewriteCond %{REQUEST_URI} !^/(id|en-ENwRL)(/.*)?$
-    RewriteRule .* - [R=404,L]
-
-    # Serve custom 404.html for server errors
+    # Handle 404 error
     ErrorDocument 404 /404.html
+
+    # Optional: Add CORS headers for API or assets
+    Header always set Access-Control-Allow-Origin "*"
 </IfModule>
