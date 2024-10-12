@@ -52,7 +52,7 @@ export default function Navbar() {
     if (lang === 'id') {
       navigate('/id'); // Redirect to /id for Indonesian
     } else {
-      navigate('/'); // Redirect to / for English
+      navigate('/en-ENwRL'); // Redirect to / for English
     }
   };
   return (

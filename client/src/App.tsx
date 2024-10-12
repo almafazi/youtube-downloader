@@ -4,7 +4,7 @@ import Main from './Main';
 import Footer from './Footer';
 import Sidebar from './Sidebar';
 import { I18nextProvider, useTranslation } from 'react-i18next';
-import { BrowserRouter as Router, Route, useLocation, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, useLocation, Routes, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import i18n from './i18n';
 import NotFound from './NotFound';
@@ -38,9 +38,11 @@ export const App = () => {
       <Router>
         <LanguageSwitcher />
         <Routes>
+          <Route path="/" element={<Navigate to="/en-ENwRL" />} />
+
           {/* Route definition */}
           <Route path="/id" element={<><Navbar /><Main /><Footer /></>} />
-          <Route path="/" element={<><Navbar /><Main /><Footer /></>} />
+          <Route path="/en-ENwRL" element={<><Navbar /><Main /><Footer /></>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
