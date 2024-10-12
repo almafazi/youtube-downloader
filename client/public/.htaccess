@@ -4,16 +4,13 @@
     # Redirect from root ("/") to "/en-ENwRL"
     RewriteRule ^/?$ en-ENwRL [R=301,L]
 
-    # Allow access to specific routes (/id and /en-ENwRL)
-    RewriteRule ^(id|en-ENwRL)(/.*)?$ - [L]
-
-    # For all other routes, return a 404 status code
-    RewriteRule .* - [R=404,L]
-
-    # Redirect everything else to index.html, except for actual files or directories (if no 404 is triggered)
+    # Serve index.html for the /id and /en-ENwRL routes, but only if the file or directory doesn't exist
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^ index.html [QSA,L]
+    RewriteRule ^(id|en-ENwRL)(/.*)?$ index.html [QSA,L]
+
+    # Return a 404 status code for all other routes
+    RewriteRule .* - [R=404,L]
 
     # Optional: Add CORS headers for API or assets
     Header always set Access-Control-Allow-Origin "*"
