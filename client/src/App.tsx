@@ -38,7 +38,7 @@ export const App = () => {
       <Router>
         <LanguageSwitcher />
         <Routes>
-          <Route path="/" element={<Navigate to="/en-ENwRL" />} />
+          {/* <Route path="/" element={<Navigate to="/en-ENwRL" />} /> */}
 
           {/* Route definition */}
           <Route path="/id" element={<><Navbar /><Main /><Footer /></>} />
