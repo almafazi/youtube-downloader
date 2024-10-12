@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, useLocation, Routes, Navigate } from 'r
 import { useEffect } from 'react';
 import i18n from './i18n';
 import NotFound from './NotFound';
+import { HelmetProvider } from 'react-helmet-async';
 
 const LanguageSwitcher = () => {
   const location = useLocation(); // Now inside Router, so it works correctly
@@ -34,21 +35,24 @@ const theme = extendTheme({
 export const App = () => {
   return (
     <I18nextProvider i18n={i18n}>
-    <ChakraProvider theme={theme}>
-      <Router>
-        <LanguageSwitcher />
-        <Routes>
-          {/* <Route path="/" element={<Navigate to="/en-ENwRL" />} /> */}
+            <HelmetProvider> {/* Add HelmetProvider here */}
 
-          {/* Route definition */}
-          <Route path="/id" element={<><Navbar /><Main /><Footer /></>} />
-          <Route path="/en-ENwRL" element={<><Navbar /><Main /><Footer /></>} />
-          
-          {/* Custom 404 page */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Router>
-    </ChakraProvider>
+              <ChakraProvider theme={theme}>
+                <Router>
+                  <LanguageSwitcher />
+                  <Routes>
+                    {/* <Route path="/" element={<Navigate to="/en-ENwRL" />} /> */}
+
+                    {/* Route definition */}
+                    <Route path="/id" element={<><Navbar /><Main /><Footer /></>} />
+                    <Route path="/en-ENwRL" element={<><Navbar /><Main /><Footer /></>} />
+                    
+                    {/* Custom 404 page */}
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </Router>
+              </ChakraProvider>
+              </HelmetProvider>
   </I18nextProvider>
   );
 };

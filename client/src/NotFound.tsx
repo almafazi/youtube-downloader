@@ -1,10 +1,15 @@
 import React from 'react';
 import { Box, Heading, Text, Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const NotFound = () => {
   return (
     <Box textAlign="center" py={10} px={6}>
+      <Helmet>
+        <title>404 - Page Not Found</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <Heading
         display="inline-block"
         as="h2"

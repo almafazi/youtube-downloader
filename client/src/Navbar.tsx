@@ -68,6 +68,7 @@ export default function Navbar() {
         
         {/* Meta Description */}
         <meta name="description" content={t('description')} />
+        <meta name="robots" content="index, follow" />
 
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
