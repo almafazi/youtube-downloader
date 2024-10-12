@@ -1,7 +1,16 @@
 <IfModule LiteSpeed>
     RewriteEngine On
 
-    # Redirect everything to index.html, except for actual files or directories
+    # Redirect from root ("/") to "/en-ENwRL"
+    RewriteRule ^/?$ en-ENwRL [R=301,L]
+
+    # Allow access to specific routes (/id and /en-ENwRL)
+    RewriteRule ^(id|en-ENwRL)(/.*)?$ - [L]
+
+    # For all other routes, return a 404 status code
+    RewriteRule .* - [R=404,L]
+
+    # Redirect everything else to index.html, except for actual files or directories (if no 404 is triggered)
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^ index.html [QSA,L]
