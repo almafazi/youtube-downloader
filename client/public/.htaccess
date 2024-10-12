@@ -2,8 +2,8 @@
     RewriteEngine On
 
     # Redirect only the root path (/) to /en-ENwRL
-    # RewriteCond %{REQUEST_URI} ^/$
-    # RewriteRule ^$ /en-ENwRL [L,R=301]
+    RewriteCond %{REQUEST_URI} ^/$
+    RewriteRule ^$ /en-ENwRL [L,R=301]
 
     # Redirect everything to index.html, except for actual files or directories
     RewriteCond %{REQUEST_FILENAME} !-f
