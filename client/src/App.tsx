@@ -43,6 +43,9 @@ export const App = () => {
           {/* Route definition */}
           <Route path="/id" element={<><Navbar /><Main /><Footer /></>} />
           <Route path="/en-ENwRL" element={<><Navbar /><Main /><Footer /></>} />
+          
+          {/* Custom 404 page */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </ChakraProvider>
