@@ -17,10 +17,15 @@ const LanguageSwitcher = () => {
     // Update the language based on the current path
     if (location.pathname === '/id') {
       i18n.changeLanguage('id');
+    } else if (location.pathname === '/es') {
+      i18n.changeLanguage('es');
+    } else if (location.pathname === '/pt') {
+      i18n.changeLanguage('pt');
     } else {
       i18n.changeLanguage('en');
     }
   }, [location.pathname]);
+  
 
   return null; // No need to render anything
 };
@@ -44,6 +49,8 @@ export const App = () => {
                     {/* <Route path="/" element={<Navigate to="/en-ENwRL" />} /> */}
 
                     {/* Route definition */}
+                    <Route path="/pt" element={<><Navbar /><Main /><Footer /></>} />
+                    <Route path="/es" element={<><Navbar /><Main /><Footer /></>} />
                     <Route path="/id" element={<><Navbar /><Main /><Footer /></>} />
                     <Route path="/en-ENwRL" element={<><Navbar /><Main /><Footer /></>} />
                     

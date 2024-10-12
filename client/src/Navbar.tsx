@@ -47,14 +47,20 @@ export default function Navbar() {
   const navigate = useNavigate(); // For programmatic navigation
   const { t } = useTranslation();
 
-  const changeLanguage = (lang:string) => {
+  const changeLanguage = (lang: string) => {
     i18n.changeLanguage(lang); // Change the language in i18n
+  
     if (lang === 'id') {
       navigate('/id'); // Redirect to /id for Indonesian
+    } else if (lang === 'es') {
+      navigate('/es'); // Redirect to /es for Spanish
+    } else if (lang === 'pt') {
+      navigate('/pt'); // Redirect to /pt for Portuguese
     } else {
       navigate('/en-ENwRL'); // Redirect to / for English
     }
   };
+  
   return (
     <>
       <Helmet>
@@ -125,7 +131,7 @@ export default function Navbar() {
             </Link>
             <Menu>
               <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-                {i18n.language === 'id' ? 'ID' : 'EN'}
+                {i18n.language === 'id' ? 'ID' : i18n.language === 'es' ? 'ES' : i18n.language === 'pt' ? 'PT' : 'EN'}
               </MenuButton>
               <MenuList>
                 <MenuItem 
@@ -141,6 +147,20 @@ export default function Navbar() {
                   color={i18n.language === 'id' ? 'white' : 'inherit'}
                 >
                   Indonesia
+                </MenuItem>
+                <MenuItem 
+                  onClick={() => changeLanguage('es')}
+                  bg={i18n.language === 'es' ? 'gray.600' : 'inherit'} // Highlight if selected
+                  color={i18n.language === 'es' ? 'white' : 'inherit'}
+                >
+                  Español
+                </MenuItem>
+                <MenuItem 
+                  onClick={() => changeLanguage('pt')}
+                  bg={i18n.language === 'pt' ? 'gray.600' : 'inherit'} // Highlight if selected
+                  color={i18n.language === 'pt' ? 'white' : 'inherit'}
+                >
+                  Português
                 </MenuItem>
               </MenuList>
             </Menu>

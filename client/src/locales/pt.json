@@ -1,0 +1,91 @@
+{
+    "welcome": "Bem-vindo à nossa aplicação",
+    "openyoutube": "Abrir YouTube",
+    "duration": "Duração",
+    "contact": "Contato",
+    "stayuptodate": "Mantenha-se atualizado",
+    "youremail": "Seu e-mail",
+    "startdownload": "Iniciando download...",
+    "startdownloaddesc": "Iniciando o download do arquivo",
+    "faildownload": "Falha no download",
+    "faildownloaddesc": "Duração máxima do vídeo: 50 minutos.",
+    "failsearch": "Falha na busca do vídeo.",
+    "failsearchdesc": "Falha ao buscar o vídeo, por favor, tente novamente mais tarde.",
+    "description": "Baixe e converta facilmente vídeos do YouTube para os formatos MP3, MP4 e 3GP gratuitamente com o nosso conversor e downloader de YouTube fácil de usar. Downloads rápidos com apenas alguns cliques, prontos para o seu dispositivo em segundos.",
+    "title": "Conversor de YouTube para MP3 & Downloader HD Rápido e Gratuito",
+    "featureTitle": "Recursos",
+    "h1": "CONVERSOR RÁPIDO DE YOUTUBE PARA MP3",
+    "langCode": "pt",
+    "downloadHistory": "Histórico de Downloads",
+    "searchOrPaste": "Pesquise no YouTube ou cole o link do YouTube aqui",
+    "feature": "Nosso downloader rápido de MP3 do YouTube já vem com vários recursos poderosos, e mais estão a caminho! Descubra abaixo o que torna nosso serviço a melhor escolha.",
+    "features": {
+      "quick_and_user_friendly": {
+        "title": "Rápido e Fácil de Usar",
+        "text": "Nosso downloader de YouTube oferece uma maneira rápida e intuitiva de converter e baixar vídeos do YouTube para MP3 ou MP4. Basta copiar o link do YouTube, colá-lo no campo de entrada e clicar no botão \"Converter\" — não é necessário registrar-se."
+      },
+      "unlimited_usage": {
+        "title": "Uso Ilimitado",
+        "text": "Desfrute de conversões e downloads ilimitados de vídeos do YouTube gratuitamente, sem restrições sobre quantas vezes você pode usar o serviço."
+      },
+      "supports_all_devices": {
+        "title": "Compatível com Todos os Dispositivos",
+        "text": "Nosso serviço funciona em todas as plataformas de dispositivos, seja você usuário de Windows, Mac, Linux, Android ou iOS. Você pode facilmente converter vídeos do YouTube para MP3, independentemente do seu dispositivo."
+      },
+      "multiple_format_options": {
+        "title": "Várias Opções de Formato",
+        "text": "Oferecemos suporte para conversão em uma ampla gama de formatos, incluindo MP3, MP4, MOV e FLV, garantindo flexibilidade em como você salva seus vídeos do YouTube."
+      },
+      "completely_secure_and_reliable": {
+        "title": "Totalmente Seguro e Confiável",
+        "text": "A segurança é uma prioridade, e nossa plataforma é projetada para ser segura e livre de qualquer malware ou vírus, monitorada e mantida regularmente para a melhor experiência do usuário."
+      }
+    },
+    "comingsoon": {
+      "pagination": {
+        "title": "Paginação",
+        "text": "Navegação por páginas que exibe cinco vídeos por vez, tornando sua experiência de busca mais organizada."
+      },
+      "playlist_downloads": {
+        "title": "Downloads de Playlist",
+        "text": "Baixe facilmente playlists inteiras do YouTube automaticamente."
+      },
+      "progress_bar": {
+        "title": "Barra de Progresso de Download",
+        "text": "Veja o progresso dos seus downloads em tempo real através da barra de progresso."
+      },
+      "quality_choice": {
+        "title": "Escolha de Qualidade",
+        "text": "Selecione a qualidade do vídeo que você deseja baixar: 480p, 720p, 1080p, até 4K."
+      },
+      "download_history_cache": {
+        "title": "Histórico de Downloads",
+        "text": "Armazene seu histórico de downloads em cache para um acesso mais rápido e eficiente."
+      },
+      "batch_download": {
+        "title": "Download em Lote",
+        "text": "Baixe vários vídeos de uma vez inserindo várias URLs para download automático."
+      },
+      "video_preview": {
+        "title": "Pré-visualização do Vídeo",
+        "text": "Pré-visualize o vídeo antes de decidir baixá-lo."
+      },
+      "edit_video_points": {
+        "title": "Editar Pontos de Início e Fim do Vídeo",
+        "text": "Edite os pontos de início e fim do vídeo para baixá-lo de acordo com suas necessidades."
+      },
+      "feature_request_form": {
+        "title": "Formulário de Contato",
+        "text": "Envie sugestões para novos recursos ou relate bugs por meio do nosso formulário de contato."
+      },
+      "chrome_extension": {
+        "title": "Extensão para Chrome",
+        "text": "Estamos considerando lançar uma extensão para o Chrome. É possível?"
+      },
+      "electron_app": {
+        "title": "Aplicativo de Desktop",
+        "text": "Baixe o aplicativo para desktop baseado em Electron no formato .exe para usuários do Windows."
+      }
+    }
+  }
+  

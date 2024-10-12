@@ -37,7 +37,7 @@ import ContactForm from './ContactForm';
 import PinterestIcon from './Icons/PinterestIcon';
 import TwitterIcon from './Icons/TwitterIcon';
 import BlogNewsIcon from './Icons/BlogNewsIcon';
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 const socialMedia = [
   {
@@ -114,6 +114,9 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
 };
 
 export default function Footer() {
+
+  const { t } = useTranslation();
+
   const {
     isOpen: changeLogIsOpen,
     onOpen: changeLogOnOpen,
