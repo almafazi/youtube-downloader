@@ -33,6 +33,7 @@ import {
   formatSecondsToMinutesAndSeconds,
 } from './utils/helpers';
 import { fetchInfo } from './utils/API';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   data: any;
@@ -42,6 +43,7 @@ interface Props {
 export default function SuggestionV2(props: Props) {
 
   const toast = useToast();
+  const { t } = useTranslation();
 
   const {
     chooseFormat,
@@ -51,9 +53,9 @@ export default function SuggestionV2(props: Props) {
   async function fetchData(format: string, id: string) {
     
     toast({
-      title: 'Starting download...',
+      title: t('startdownload'),
       description:
-        'Starting download file, '+decodeStr(snippet.title),
+        t('startdownloaddesc')+': '+decodeStr(snippet.title),
       status: 'success',
       duration: 3000,
       isClosable: true,
@@ -76,9 +78,9 @@ export default function SuggestionV2(props: Props) {
 
     } catch (error) {
         toast({
-          title: 'Download failed',
+          title: t('faildownload'),
           description:
-            'MAX Duration is 50 Minute. '+decodeStr(snippet.title),
+            t('faildownloaddesc')+'. '+decodeStr(snippet.title),
           status: 'error',
           duration: 3000,
           isClosable: true,
@@ -111,7 +113,7 @@ export default function SuggestionV2(props: Props) {
               Length: {formatSecondsToMinutesAndSeconds(snippet.lengthSeconds)}
             </Badge> */}
             <Badge textTransform="none">
-              Duration: {snippet.publishedAt}
+              {t('duration')}: {snippet.publishedAt}
             </Badge>
           </Flex>
         </Box>
@@ -164,7 +166,7 @@ export default function SuggestionV2(props: Props) {
             as="a"
             marginInlineStart="0 !important"
           >
-            Open YouTube
+            {t('openyoutube')}
           </Button>
         </ButtonGroup>
       </CardFooter>

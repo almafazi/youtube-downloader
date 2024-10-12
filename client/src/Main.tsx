@@ -119,9 +119,9 @@ export default function Main() {
       setError(true);
       // if (err && err.status === 403) {
       toast({
-        title: 'YouTube Search Limit exceeded',
+        title: t('failsearch'),
         description:
-          'You can search again tomorrow. Just paste the URL into the searchfield. This will still works. The YouTube-API allows only a few search requests.',
+          t('failsearchdesc'),
         status: 'success',
         duration: 9000,
         isClosable: true,
@@ -193,9 +193,9 @@ export default function Main() {
         setConvertionLoading(false);
       } catch (err) {
         toast({
-          title: 'Max. Video Duration is 50 Minutes',
+          title: t('faildownload'),
           description:
-            'Please choose other video.',
+          t('faildownloaddesc'),
           status: 'error',
           duration: 9000,
           isClosable: true,

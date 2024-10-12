@@ -37,6 +37,7 @@ import ContactForm from './ContactForm';
 import PinterestIcon from './Icons/PinterestIcon';
 import TwitterIcon from './Icons/TwitterIcon';
 import BlogNewsIcon from './Icons/BlogNewsIcon';
+import { t } from 'i18next';
 
 const socialMedia = [
   {
@@ -163,10 +164,10 @@ export default function Footer() {
               </Stack>
             </Stack>
             <Stack align={'flex-end'}>
-              <ListHeader>Stay up to date</ListHeader>
+              <ListHeader>{ t('stayuptodate') }</ListHeader>
               <Stack direction={'row'}>
                 <Input
-                  placeholder={'Your email address'}
+                  placeholder={ t('youremail') }
                   bg={useColorModeValue('gray.300', 'gray.700')}
                   color={useColorModeValue('white', 'gray.200')}
                   border={0}
@@ -189,10 +190,10 @@ export default function Footer() {
                 <BlogNewsIcon mr="2" /> Blog
                 </Button>
                 <Button onClick={contactFormOnOpen} mr="2" mt="6">
-                  Contact
+                { t('contact') }
                 </Button>
                 <Button onClick={imprintOnOpen} mt="6">
-                  Imprint
+                  Info
                 </Button>
               </Box>
             </Stack>
@@ -225,7 +226,7 @@ export default function Footer() {
       <Modal onClose={contactFormOnClose} size="xl" isOpen={contactFormIsOpen}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Contact</ModalHeader>
+          <ModalHeader>{ t('contact') }</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <ContactForm handleClose={contactFormOnClose} />
