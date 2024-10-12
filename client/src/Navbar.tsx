@@ -58,20 +58,24 @@ export default function Navbar() {
   return (
     <>
       <Helmet>
+        <html lang={t('langCode') ? t('langCode') : 'en' } /> {/* Tambahkan atribut lang pada elemen <html> */}
+        <meta http-equiv="Content-Language" content={t('langCode') ? t('langCode') : 'en'} /> {/* Meta untuk bahasa */}
         <title>{t('title')}</title>
-        <meta
-          property="og:title"
-          content={t('title')}
-        />
-        <meta
-          property="og:description"
-          content={t('description')}
-        />
+        
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content={t('title')} />
+        <meta property="og:description" content={t('description')} />
+        
+        {/* Meta Description */}
         <meta name="description" content={t('description')} />
+
+        {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t('title')} />
         <meta name="twitter:description" content={t('description')} />
-        <link rel="canonical" href={`https://y2mate.one${t('langCode')}`} />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href={`https://y2mate.one/${t('langCode')}`} />
       </Helmet>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
