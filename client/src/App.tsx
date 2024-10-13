@@ -8,7 +8,6 @@ import { BrowserRouter as Router, Route, useLocation, Routes, Navigate } from 'r
 import { useEffect } from 'react';
 import i18n from './i18n';
 import NotFound from './NotFound';
-import { HelmetProvider } from 'react-helmet-async';
 
 const LanguageSwitcher = () => {
   const location = useLocation(); // Now inside Router, so it works correctly
@@ -38,10 +37,13 @@ const theme = extendTheme({
 });
 
 export const App = () => {
+const { t } = useTranslation();
+useEffect(() => {
+  document.documentElement.lang = t('langCode') ? t('langCode') : 'en';
+}, [t('langCode')]);
+
   return (
     <I18nextProvider i18n={i18n}>
-            <HelmetProvider> {/* Add HelmetProvider here */}
-
               <ChakraProvider theme={theme}>
                 <Router>
                   <LanguageSwitcher />
@@ -59,7 +61,6 @@ export const App = () => {
                   </Routes>
                 </Router>
               </ChakraProvider>
-              </HelmetProvider>
   </I18nextProvider>
   );
 };

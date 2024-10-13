@@ -20,7 +20,6 @@ import { isLocalHost } from './utils/helpers';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import {Helmet} from "react-helmet";
 import BlogNewsIcon from './Icons/BlogNewsIcon';
 
 // const Links = ['Dashboard', 'Projects', 'Team'];
@@ -63,9 +62,8 @@ export default function Navbar() {
   
   return (
     <>
-      <Helmet>
-        <html lang={t('langCode') ? t('langCode') : 'en' } /> {/* Tambahkan atribut lang pada elemen <html> */}
-        <meta http-equiv="Content-Language" content={t('langCode') ? t('langCode') : 'en'} /> {/* Meta untuk bahasa */}
+        {/* <html lang={t('langCode') ? t('langCode') : 'en' } />  */}
+        <meta httpEquiv="Content-Language" content={t('langCode') ? t('langCode') : 'en'} /> {/* Meta untuk bahasa */}
         <title>{t('title')}</title>
         
         {/* Open Graph Meta Tags */}
@@ -83,7 +81,6 @@ export default function Navbar() {
         
         {/* Canonical URL */}
         <link rel="canonical" href={`https://y2mate.one/${t('langCode')}`} />
-      </Helmet>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           {/* <IconButton
