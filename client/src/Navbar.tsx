@@ -55,6 +55,8 @@ export default function Navbar() {
       navigate('/es'); // Redirect to /es for Spanish
     } else if (lang === 'pt') {
       navigate('/pt'); // Redirect to /pt for Portuguese
+    } else if (lang === 'ar') {
+      navigate('/ar'); // Redirect to /pt for Portuguese
     } else {
       navigate('/en-ENwRL'); // Redirect to / for English
     }
@@ -129,7 +131,7 @@ export default function Navbar() {
             </Link>
             <Menu>
               <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-                {i18n.language === 'id' ? 'ID' : i18n.language === 'es' ? 'ES' : i18n.language === 'pt' ? 'PT' : 'EN'}
+                {i18n.language === 'id' ? 'ID' : i18n.language === 'es' ? 'ES' : i18n.language === 'pt' ? 'PT' : i18n.language === 'ar' ? 'AR' : 'EN'}
               </MenuButton>
               <MenuList>
                 <MenuItem 
@@ -160,6 +162,18 @@ export default function Navbar() {
                 >
                   Português
                 </MenuItem>
+                <MenuItem 
+                  onClick={() => changeLanguage('ar')}
+                  bg={i18n.language === 'ar' ? 'gray.600' : 'inherit'} // Highlight if selected
+                  color={i18n.language === 'ar' ? 'white' : 'inherit'}
+                >
+                  عربي
+                </MenuItem>
+                <MenuItem 
+                  onClick={() => changeLanguage('vi')}
+                  bg={i18n.language === 'vi' ? 'gray.600' : 'inherit'} // Highlight if selected
+                  color={i18n.language === 'vi' ? 'white' : 'inherit'}
+                >Tiếng Việt</MenuItem>
               </MenuList>
             </Menu>
             <ColorModeSwitcher />

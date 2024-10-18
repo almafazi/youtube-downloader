@@ -4,6 +4,8 @@ import en from './locales/en.json';
 import id from './locales/id.json';
 import es from './locales/es.json';
 import pt from './locales/pt.json';
+import ar from './locales/ar.json';
+import vi from './locales/vi.json';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 // Custom language detection to support specific paths like /idv1
@@ -12,6 +14,7 @@ const customLanguageDetector = {
   lookup() {
     const path = window.location.pathname;
     if (path.startsWith('/idv1')) return 'id'; // Detect as 'id' if path matches
+    if (path.startsWith('/en-ENwRL')) return 'en'; // Detect as 'id' if path matches
     const pathSegments = path.split('/');
     return pathSegments[1]; // Use the first part of the path as the language code
   },
@@ -32,6 +35,8 @@ i18n
       id: { translation: id },
       es: { translation: es },
       pt: { translation: pt },
+      ar: { translation: ar },
+      vi: { translation: vi },
     },
     fallbackLng: 'en',
     detection: {
