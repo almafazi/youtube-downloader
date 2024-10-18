@@ -2,25 +2,40 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import en from './locales/en.json';
 import id from './locales/id.json';
-import es from './locales/es.json'; // Import Spanish JSON
-import pt from './locales/pt.json'; // Import Portuguese JSON
-
+import es from './locales/es.json';
+import pt from './locales/pt.json';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
+// Custom language detection to support specific paths like /idv1
+const customLanguageDetector = {
+  name: 'customPathDetector',
+  lookup() {
+    const path = window.location.pathname;
+    if (path.startsWith('/idv1')) return 'id'; // Detect as 'id' if path matches
+    const pathSegments = path.split('/');
+    return pathSegments[1]; // Use the first part of the path as the language code
+  },
+};
+
 i18n
-  .use(LanguageDetector) // Use the language detector
+  .use(LanguageDetector)
+  .use({
+    type: 'languageDetector',
+    init: () => {},
+    detect: customLanguageDetector.lookup, // Use custom lookup
+    cacheUserLanguage: () => {},
+  })
   .use(initReactI18next)
   .init({
     resources: {
       en: { translation: en },
       id: { translation: id },
-      es: { translation: es }, // Add Spanish translation
-      pt: { translation: pt }, // Add Portuguese translation
+      es: { translation: es },
+      pt: { translation: pt },
     },
-    fallbackLng: 'en', // Default language
+    fallbackLng: 'en',
     detection: {
-      order: ['path', 'navigator'], // Detect language from the URL path
-      lookupFromPathIndex: 0, // Use the first part of the path (e.g., /id)
+      order: ['customPathDetector', 'navigator'], // Custom path detector first
     },
     interpolation: {
       escapeValue: false,

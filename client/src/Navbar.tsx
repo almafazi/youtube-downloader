@@ -50,7 +50,7 @@ export default function Navbar() {
     i18n.changeLanguage(lang); // Change the language in i18n
   
     if (lang === 'id') {
-      navigate('/id'); // Redirect to /id for Indonesian
+      navigate('/idv1'); // Redirect to /id for Indonesian
     } else if (lang === 'es') {
       navigate('/es'); // Redirect to /es for Spanish
     } else if (lang === 'pt') {
@@ -80,7 +80,7 @@ export default function Navbar() {
         <meta name="twitter:description" content={t('description')} />
         
         {/* Canonical URL */}
-        <link rel="canonical" href={`https://y2mate.one/${t('langCode') ? t('langCode') : 'en-ENwRL'}`} />
+        <link rel="canonical" href={`https://y2mate.one/${t('langCanonical') ? t('langCanonical') : 'en-ENwRL'}`} />
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           {/* <IconButton
@@ -120,11 +120,12 @@ export default function Navbar() {
           
           <Flex alignItems={'center'}>
             <Link href="/blog/" mr={5} display="flex"
-      alignItems="center"
-      textDecoration="none" 
-      color={'teal.200'}
-      _hover={{ color: 'teal.500' }}  >
-                  <BlogNewsIcon mr="2" w={5} h={5} />       <Text>Blog</Text>
+                  alignItems="center"
+                  textDecoration="none" 
+                  color={'teal.200'}
+                  _hover={{ color: 'teal.500' }}  >
+                  <BlogNewsIcon mr="2" w={5} h={5} />       
+                  <Text>Blog</Text>
             </Link>
             <Menu>
               <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>

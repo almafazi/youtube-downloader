@@ -26,6 +26,7 @@ import Suggestions from './Suggestions';
 import { fetchInfo, getInfos, getSearch, getSuggestions } from './utils/API';
 import { getDownloadUrl, isYtUrl } from './utils/helpers';
 import { useTranslation } from 'react-i18next';
+import Article from './Article';
 
 export default function Main() {
   const { colorMode } = useColorMode();
@@ -287,6 +288,7 @@ export default function Main() {
           </Button>
         )}
         <Features />
+        <Article />
         <FeaturesComingSoon />
       </Container>
       <VisuallyHidden>
