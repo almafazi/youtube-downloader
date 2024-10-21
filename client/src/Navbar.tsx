@@ -57,7 +57,9 @@ export default function Navbar() {
       navigate('/pt'); // Redirect to /pt for Portuguese
     } else if (lang === 'ar') {
       navigate('/ar'); // Redirect to /pt for Portuguese
-    } else {
+    } else if (lang === 'vi') {
+      navigate('/vi'); // Redirect to /pt for Portuguese
+    }else {
       navigate('/en-ENwRL'); // Redirect to / for English
     }
   };
