@@ -60,7 +60,7 @@ export default function Navbar() {
     } else if (lang === 'vi') {
       navigate('/vi'); // Redirect to /pt for Portuguese
     }else {
-      navigate('/en-ENwRL'); // Redirect to / for English
+      navigate('/'); // Redirect to / for English
     }
   };
   
@@ -84,7 +84,7 @@ export default function Navbar() {
         <meta name="twitter:description" content={t('description')} />
         
         {/* Canonical URL */}
-        <link rel="canonical" href={`https://y2mate.one/${t('langCanonical') ? t('langCanonical') : 'en-ENwRL'}`} />
+        <link rel="canonical" href={`https://y2mate.one/${t('langCanonical') ? t('langCanonical') : ''}`} />
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           {/* <IconButton

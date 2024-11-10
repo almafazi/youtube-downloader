@@ -13,8 +13,8 @@ const customLanguageDetector = {
   name: 'customPathDetector',
   lookup() {
     const path = window.location.pathname;
-    if (path.startsWith('/idv1')) return 'id'; // Detect as 'id' if path matches
-    if (path.startsWith('/en-ENwRL')) return 'en'; // Detect as 'id' if path matches
+    if (path.startsWith('/id')) return 'id'; // Detect as 'id' if path matches
+    if (path.startsWith('/')) return 'en'; // Detect as 'id' if path matches
     const pathSegments = path.split('/');
     return pathSegments[1]; // Use the first part of the path as the language code
   },
