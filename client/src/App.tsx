@@ -47,7 +47,7 @@ export const App = () => {
                     <Route path="/" element={<><Navbar /><Main /><Footer /></>} />
                     
                     {/* Custom 404 page */}
-                    <Route path="*" element={<NotFound />} />
+                    {/* <Route path="*" element={<NotFound />} /> */}
                   </Routes>
                 </Router>
               </ChakraProvider>
