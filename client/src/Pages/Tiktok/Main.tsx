@@ -267,12 +267,12 @@ export default function Main() {
           />
         </Box>
         {pagingInfo?.items?.length === 0 && <NothingFoundAlert />}
-        <Suggestions
+        {/* <Suggestions
           data={suggestions}
           chooseFormat={chooseFormat}
           isLoading={isSearchLoading}
           input={input}
-        />
+        /> */}
         {!!suggestions.length && (
           <Button
             onClick={() => {

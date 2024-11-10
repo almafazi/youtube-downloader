@@ -19,6 +19,19 @@ export const isTikTokUrl = (url: string) => {
  */
 export const isLocalHost = window.location.hostname === 'localhost';
 
+export const formatDownloadLabel = (format: string) => {
+  if (format.startsWith('MP3')) {
+    // Extract the bitrate from format (e.g., 'MP3-320')
+    const bitrate = format.split('-')[1];
+    return `MP3 - ${bitrate} Kbps`; // Format for MP3 with bitrate
+  } else if (format.startsWith('MP4')) {
+    // Extract the quality from format (e.g., 'MP4-720')
+    const quality = format.split('-')[1];
+    return `MP4 - ${quality}p`; // Format for MP4 with resolution
+  }
+  return format; // Default fallback in case it's not MP3 or MP4
+};
+
 /**
  * Get the current host.
  */

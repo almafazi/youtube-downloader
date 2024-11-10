@@ -29,8 +29,6 @@ import {
 } from '@chakra-ui/react';
 import {
   decodeStr,
-  formats,
-  formatSecondsToMinutesAndSeconds,
 } from './utils/helpers';
 import { fetchInfo } from './utils/API';
 import { useTranslation } from 'react-i18next';
@@ -38,6 +36,8 @@ import { useTranslation } from 'react-i18next';
 interface Props {
   data: any;
   chooseFormat: (data: any) => void;
+  setUrlFromSearch: (url: string) => void,
+  onOpen: () => void,
 }
 
 export default function SuggestionV2(props: Props) {
@@ -47,48 +47,10 @@ export default function SuggestionV2(props: Props) {
 
   const {
     chooseFormat,
+    setUrlFromSearch,
+    onOpen,
     data: { snippet, id },
   } = props;
-
-  async function fetchData(format: string, id: string) {
-    
-    toast({
-      title: t('startdownload'),
-      description:
-        t('startdownloaddesc')+': '+decodeStr(snippet.title),
-      status: 'success',
-      duration: 3000,
-      isClosable: true,
-    });
-
-    try {
-
-        const formData = {
-            downloadMode: format === '.mp3' ? "audio" : "auto",
-            url: `https://www.youtube.com/watch?v=${id}`
-        };
-        
-        const { data } = await fetchInfo(formData);  // Assuming fetchInfo is a promise-based function
-        data.thumbnail_url = snippet.thumbnails.medium.url;
-        chooseFormat(data)
-        if (data.url) {
-          window.location.href = data.url;  // This will navigate to the URL in the same tab
-      }
-        
-
-    } catch (error) {
-        toast({
-          title: t('faildownload'),
-          description:
-            t('faildownloaddesc')+'. '+decodeStr(snippet.title),
-          status: 'error',
-          duration: 3000,
-          isClosable: true,
-        });
-
-        return null;  // Return null or handle error accordingly
-    }
-}
 
   return (
     <Card
@@ -128,46 +90,38 @@ export default function SuggestionV2(props: Props) {
         backgroundColor={useColorModeValue('gray.100', 'gray.600')}
         borderBottomRadius="lg"
       >
+
+            
         <ButtonGroup
           gap="1"
           flexWrap="wrap"
           justifyContent="center"
           width="100%"
         >
-          <Menu>
-            <MenuButton
-              width="100%"
-              background={useColorModeValue('gray.300', 'gray.700')}
-              as={Button}
+          <Button
+              onClick={() => {
+                setUrlFromSearch(`https://www.youtube.com/watch?v=${id.videoId}`)
+                onOpen()
+              }}
+              loadingText="Converting..."
+              width={'100%'}
               mb={2}
+              background={useColorModeValue('gray.300', 'gray.700')}
               leftIcon={<DownloadIcon />}
-              rightIcon={<ChevronDownIcon />}
-              color={useColorModeValue('gray.800', 'white')}
             >
               Download
-            </MenuButton>
-            <MenuList color={useColorModeValue('gray.800', 'gray.100')}>
-              {formats.filter(item => item.format === '.mp4' || item.format === '.mp3').map((format) => (
-                <MenuItem
-                  key={format.text}
-                  onClick={() => fetchData(format.format, id.videoId)}
-                >
-                  {format.text}
-                </MenuItem>
-              ))}
-            </MenuList>
-          </Menu>
-          <Button
-            width="100%"
-            background={useColorModeValue('gray.300', 'gray.700')}
-            rel="noreferrer"
-            href={`https://www.youtube.com/watch?v=${id.videoId}`}
-            target="_blank"
-            as="a"
-            marginInlineStart="0 !important"
-          >
-            {t('openyoutube')}
-          </Button>
+            </Button>
+            <Button
+              width="100%"
+              background={useColorModeValue('gray.300', 'gray.700')}
+              rel="noreferrer"
+              href={`https://www.youtube.com/watch?v=${id.videoId}`}
+              target="_blank"
+              as="a"
+              marginInlineStart="0 !important"
+            >
+              {t('openyoutube')}
+            </Button>
         </ButtonGroup>
       </CardFooter>
     </Card>

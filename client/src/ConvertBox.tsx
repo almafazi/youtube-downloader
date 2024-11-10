@@ -14,7 +14,7 @@ import {
   Stack,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import { formats } from './utils/helpers';
+import { formatDownloadLabel, formats } from './utils/helpers';
 
 interface Props {
   data: any;
@@ -49,7 +49,7 @@ export default function ConvertBox(props: Props) {
               <Heading size="sm">{data.fileMetaData?.title}</Heading>
               <Text mb="5" size="sm">{data.fileMetaData?.artist}</Text>
               <Button leftIcon={<DownloadIcon />} onClick={handleDownload} variant='solid'>
-                Download {data.format}
+                Download {formatDownloadLabel(data.format)}
               </Button>
             </Box>
           </Grid>

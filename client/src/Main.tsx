@@ -6,11 +6,16 @@ import {
   useColorMode,
   Button,
   useToast,
-  Alert,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
   Flex,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  VStack,
+  Text,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { useEffect, useRef, useState } from 'react';
 import Features from './Features';
@@ -31,9 +36,11 @@ import Search from './Search';
 export default function Main() {
   const { colorMode } = useColorMode();
   const toast = useToast();
-  const [format, setFormat] = useState('MP3');
+  const [format, setFormat] = useState('MP3-320');
   const [downloadUrl, setDownloadUrl] = useState('');
   const [input, setInput] = useState('');
+  const [searchKey, setSearchKey] = useState('');
+  const [urlFromSearch, setUrlFromSearch] = useState('');
   const [isConvertionLoading, setConvertionLoading] = useState(false);
   const [isSearchLoading, setSearchLoading] = useState(false);
   const [currentVideo, setCurrentVideo] = useState(null);
@@ -43,6 +50,7 @@ export default function Main() {
   const downloadBtnRef = useRef<HTMLAnchorElement>(null);
   const [downloads, setDownloads] = useState<HistoryItem[]>([]);
   const [youtubeId, setYouTubeId] = useState<string | null>(null);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const { t } = useTranslation();
   useEffect(() => {
@@ -65,10 +73,6 @@ export default function Main() {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput(event.target.value);
-  };
-
-  const handleFormatChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setFormat(event.target.value);
   };
 
   function getYouTubeId(url: string) {
@@ -165,8 +169,26 @@ export default function Main() {
     }
   };
 
+  const selectFormatAndDownload = (format: string) => {
+    setFormat(format);
+    if(urlFromSearch) {
+      setInput(urlFromSearch)
+    }
+    handleSearch((urlFromSearch ? urlFromSearch : input), format);
+    onClose();
+  };
 
-  const handleSearch = async () => {
+  const doSearch = () => {
+    if(isYtUrl(input)) {
+      onOpen()
+    } else {
+      handleSearch(input)
+    }
+  };
+
+
+  const handleSearch = async (input:string, format: string = 'MP3-320') => {
+    setUrlFromSearch('');
     setSuggestions([]);
     setCurrentVideo(null);
     setPagingInfo([]);
@@ -176,16 +198,18 @@ export default function Main() {
       return;
     }
     if (isYouTubeUrl) {
+      setSearchKey('');
       setError(false);
       setConvertionLoading(true);
       try {
         // const response = await fetch('/dummy.json');
         // const data = await response.json();
         const formData = {
-          downloadMode: format == 'MP3' ? "audio" : "auto",
+          downloadMode: format.startsWith('MP3') ? "audio" : "auto", // Audio if MP3, auto for video
           url: input,
           youtubeHLS: true,
-          videoQuality: "720"
+          videoQuality: format.startsWith('MP4') ? format.split('-')[1] : "720", // Set video quality if MP4, else default to 720
+          audioBitrate: format.startsWith('MP3') ? format.split('-')[1] : "320" // Set bitrate if MP3, else default to 320
         };
         const { data } = await fetchInfo(formData);
         setYouTubeId(getYouTubeId(input));
@@ -210,6 +234,7 @@ export default function Main() {
       setError(true);
       setConvertionLoading(false);
       //fetchSuggestions();
+      setSearchKey(input)
       fetchSuggestions2();
     }
   };
@@ -251,12 +276,10 @@ export default function Main() {
             {t('h1')}
           </Heading> 
           <Search
-            handleFormatChange={handleFormatChange}
             handleChange={handleChange}
-            handleSearch={handleSearch}
             error={error}
             input={input}
-            format={format}
+            doSearch={doSearch}
             isLoading={
               (isConvertionLoading && !isSearchLoading) ||
               (!isConvertionLoading && isSearchLoading)
@@ -271,9 +294,11 @@ export default function Main() {
         {pagingInfo?.items?.length === 0 && <NothingFoundAlert />}
         <Suggestions
           data={suggestions}
+          setUrlFromSearch={setUrlFromSearch}
+          onOpen={onOpen}
           chooseFormat={chooseFormat}
           isLoading={isSearchLoading}
-          input={input}
+          input={searchKey}
         />
         {!!suggestions.length && (
           <Button
@@ -298,6 +323,55 @@ export default function Main() {
           {downloadUrl}
         </a>
       </VisuallyHidden>
+      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Select Download Format</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <VStack spacing={6} align="stretch">
+              {/* MP3 Download Card */}
+              <Box borderWidth="1px" borderRadius="lg" padding="4">
+                <Text fontSize="lg" fontWeight="bold" mb="2">
+                  Download MP3
+                </Text>
+                <VStack align="start" spacing={3}>
+                  <Button mt="1" variant="solid" colorScheme='teal' width={"100%"} onClick={() => selectFormatAndDownload('MP3-320')}>
+                    MP3 - 320 kbps
+                  </Button>
+                  <Button my="1" variant="solid" colorScheme='teal' width={"100%"} onClick={() => selectFormatAndDownload('MP3-128')}>
+                    MP3 - 128 kbps
+                  </Button>
+                </VStack>
+              </Box>
+
+              {/* Video Download Card */}
+              <Box borderWidth="1px" borderRadius="lg" padding="4">
+                <Text fontSize="lg" fontWeight="bold" mb="2">
+                  Download Video MP4
+                </Text>
+                <VStack align="start" spacing={3}>
+                  <Button mt="1" variant="solid" colorScheme='teal' width={"100%"} onClick={() => selectFormatAndDownload('MP4-1080')}>
+                    1080p (.mp4)
+                  </Button>
+                  <Button mt="1" variant="solid" colorScheme='teal' width={"100%"} onClick={() => selectFormatAndDownload('MP4-720')}>
+                    720p (.mp4)
+                  </Button>
+                  <Button mt="1" variant="solid" colorScheme='teal' width={"100%"} onClick={() => selectFormatAndDownload('MP4-360')}>
+                    360p (.mp4)
+                  </Button>
+                  <Button mt="1" variant="solid" colorScheme='teal' width={"100%"} onClick={() => selectFormatAndDownload('MP4-240')}>
+                    240p (.mp4)
+                  </Button>
+                  <Button my="1" variant="solid" colorScheme='teal' width={"100%"} onClick={() => selectFormatAndDownload('MP4-144')}>
+                    144p (.mp4)
+                  </Button>
+                </VStack>
+              </Box>
+            </VStack>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </>
   );
 }

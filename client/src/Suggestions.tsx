@@ -7,10 +7,13 @@ interface Props {
   data: any[];
   isLoading: boolean;
   input: string,
+  onOpen: () => void,
+  setUrlFromSearch: (url: string) => void,
   chooseFormat: (data: any) => void;
 }
+
 export default function Suggestions(props: Props) {
-  const { data, isLoading, chooseFormat, input } = props;
+  const { data, isLoading, chooseFormat, setUrlFromSearch, onOpen, input } = props;
 
   return (
     <Box>
@@ -35,6 +38,8 @@ export default function Suggestions(props: Props) {
               data={suggestion}
               key={suggestion.id.videoId}
               chooseFormat={chooseFormat}
+              setUrlFromSearch={setUrlFromSearch}
+              onOpen={onOpen}
             />
           );
         })}
