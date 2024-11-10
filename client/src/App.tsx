@@ -45,8 +45,6 @@ export const App = () => {
                     <Route path="/vi/" element={<><Navbar /><Main /><Footer /></>} />
                     <Route path="/id/" element={<><Navbar /><Main /><Footer /></>} />
                     <Route path="/" element={<><Navbar /><Main /><Footer /></>} />
-
-                    <Route path="/tiktok-downloader" element={<><Navbar /><MainTiktok /><Footer /></>} />
                     
                     {/* Custom 404 page */}
                     <Route path="*" element={<NotFound />} />
