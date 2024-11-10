@@ -10,6 +10,10 @@ export const isYtUrl = (url: string) => {
   return ytRegex.test(url);
 };
 
+export const isTikTokUrl = (url: string) => {
+  return true;
+};
+
 /**
  * Check if the page is running on localhost (dev environment).
  */

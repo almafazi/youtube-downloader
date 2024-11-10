@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://y2mate.one/en-ENwRL</loc>
+    <loc>https://mp3.y2mate.one/en-ENwRL</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://y2mate.one/es</loc>
+    <loc>https://mp3.y2mate.one/es</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://y2mate.one/pt</loc>
+    <loc>https://mp3.y2mate.one/pt</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://y2mate.one/ar</loc>
+    <loc>https://mp3.y2mate.one/ar</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://y2mate.one/vi</loc>
+    <loc>https://mp3.y2mate.one/vi</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://y2mate.one/idv1</loc>
+    <loc>https://mp3.y2mate.one/idv1</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url><url>
-    <loc>https://y2mate.one/blog/</loc>
+    <loc>https://mp3.y2mate.one/blog/</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>

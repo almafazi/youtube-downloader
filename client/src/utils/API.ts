@@ -31,6 +31,10 @@ export const fetchInfo = async (formData: { downloadMode: string, url: string })
   return await API.post(`/`, formData);
 };
 
+export const renderTiktokVideo = async (formData: { audio: string, images: Array<any> }) => {
+  return await API.post(`/render-tiktok-video`, formData);
+};
+
 export const sendContactForm = async (formData: { email: string, issueType: string, description: string }) => {
   return await API.post(`/contact`, formData);
 };

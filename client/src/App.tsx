@@ -6,6 +6,7 @@ import { I18nextProvider, useTranslation} from 'react-i18next';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NotFound from './NotFound';
 import { useEffect } from 'react';
+import MainTiktok from './Pages/Tiktok/Main';
 
 const theme = extendTheme({
   config: {
@@ -44,6 +45,8 @@ export const App = () => {
                     <Route path="/vi" element={<><Navbar /><Main /><Footer /></>} />
                     <Route path="/idv1" element={<><Navbar /><Main /><Footer /></>} />
                     <Route path="/en-ENwRL" element={<><Navbar /><Main /><Footer /></>} />
+
+                    <Route path="/tiktok-downloader" element={<><Navbar /><MainTiktok /><Footer /></>} />
                     
                     {/* Custom 404 page */}
                     <Route path="*" element={<NotFound />} />

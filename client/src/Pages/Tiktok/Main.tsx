@@ -13,25 +13,25 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import { useEffect, useRef, useState } from 'react';
-import Features from './Features';
-import FeaturesComingSoon from './FeaturesComingSoon';
-import LogoBlack from './Icons/LogoBlack';
-import LogoWhite from './Icons/LogoWhite';
-import NothingFoundAlert from './NothingFoundAlert';
+import Features from '../../Features';
+import FeaturesComingSoon from '../../FeaturesComingSoon';
+import LogoBlack from '../../Icons/LogoBlack';
+import LogoWhite from '../../Icons/LogoWhite';
+import NothingFoundAlert from '../../NothingFoundAlert';
 import PreviewBox from './PreviewBox';
-import SelectFormat from './SelectFormat';
-import Sidebar, { HistoryItem } from './Sidebar';
-import Suggestions from './Suggestions';
-import { fetchInfo, getInfos, getSearch, getSuggestions } from './utils/API';
-import { getDownloadUrl, isYtUrl } from './utils/helpers';
-import { useTranslation } from 'react-i18next';
-import Article from './Article';
 import Search from './Search';
+import SelectFormat from '../../SelectFormat';
+import Sidebar, { HistoryItem } from '../../Sidebar';
+import Suggestions from '../../Suggestions';
+import { fetchInfo, getInfos, getSearch, getSuggestions } from '../../utils/API';
+import { getDownloadUrl, isTikTokUrl, isYtUrl } from '../../utils/helpers';
+import { useTranslation } from 'react-i18next';
+import Article from '../../Article';
 
 export default function Main() {
   const { colorMode } = useColorMode();
   const toast = useToast();
-  const [format, setFormat] = useState('MP3');
+  const [format, setFormat] = useState('MP4');
   const [downloadUrl, setDownloadUrl] = useState('');
   const [input, setInput] = useState('');
   const [isConvertionLoading, setConvertionLoading] = useState(false);
@@ -170,28 +170,28 @@ export default function Main() {
     setSuggestions([]);
     setCurrentVideo(null);
     setPagingInfo([]);
-    const isYouTubeUrl = isYtUrl(input);
+    const isTiktokUrlTrue = isTikTokUrl(input);
     if (!input) {
       setError(true);
       return;
     }
-    if (isYouTubeUrl) {
+    if (isTiktokUrlTrue) {
       setError(false);
       setConvertionLoading(true);
       try {
         // const response = await fetch('/dummy.json');
         // const data = await response.json();
         const formData = {
+          tiktokFullAudio: true,
           downloadMode: format == 'MP3' ? "audio" : "auto",
-          url: input,
-          youtubeHLS: true,
-          videoQuality: "720"
+          tiktokH265: true,
+          videoQuality: 'max',
+          url: input
         };
         const { data } = await fetchInfo(formData);
-        setYouTubeId(getYouTubeId(input));
-        data.thumbnail_url = `https://img.youtube.com/vi/${getYouTubeId(input)}/mqdefault.jpg`;
+        data.thumbnail_url = data.metadata?.cover;
+        data.picker = data.picker;
         data.format = format;
-        data.videoId = getYouTubeId(input);
         setCurrentVideo(data);
         setConvertionLoading(false);
       } catch (err) {
@@ -209,8 +209,6 @@ export default function Main() {
     } else {
       setError(true);
       setConvertionLoading(false);
-      //fetchSuggestions();
-      fetchSuggestions2();
     }
   };
 
@@ -248,7 +246,7 @@ export default function Main() {
               {colorMode === 'light' ? <LogoBlack width='85%' /> : <LogoWhite width='85%' />}
           </Flex>
           <Heading as="h1" size="md" mt="8" mb="7"> 
-            {t('h1')}
+            {t('tiktok.h1')}
           </Heading> 
           <Search
             handleFormatChange={handleFormatChange}

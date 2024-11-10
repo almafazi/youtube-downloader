@@ -2,7 +2,7 @@
   "name": "yt-downloader-client",
   "version": "1.0.0",
   "author": "Benjamin Meier",
-  "homepage": "https://y2mate.one",
+  "homepage": "https://mp3.y2mate.one",
   "license": "MIT",
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
@@ -24,7 +24,8 @@
     "react-router-dom": "^6.26.2",
     "react-scripts": "5.0.1",
     "typescript": "^5.4.3",
-    "web-vitals": "^3.5.2"
+    "web-vitals": "^3.5.2",
+    "yet-another-react-lightbox": "^3.21.6"
   },
   "scripts": {
     "start": "react-scripts start",

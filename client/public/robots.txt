@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://y2mate.one/sitemap.xml
+Sitemap: https://mp3.y2mate.one/sitemap.xml
