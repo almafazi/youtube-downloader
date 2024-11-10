@@ -39,11 +39,11 @@ export const App = () => {
                     {/* <Route path="/" element={<Navigate to="/en-ENwRL" />} /> */}
 
                     {/* Route definition */}
-                    <Route path="/pt" element={<><Navbar /><Main /><Footer /></>} />
-                    <Route path="/es" element={<><Navbar /><Main /><Footer /></>} />
-                    <Route path="/ar" element={<><Navbar /><Main /><Footer /></>} />
-                    <Route path="/vi" element={<><Navbar /><Main /><Footer /></>} />
-                    <Route path="/id" element={<><Navbar /><Main /><Footer /></>} />
+                    <Route path="/pt/" element={<><Navbar /><Main /><Footer /></>} />
+                    <Route path="/es/" element={<><Navbar /><Main /><Footer /></>} />
+                    <Route path="/ar/" element={<><Navbar /><Main /><Footer /></>} />
+                    <Route path="/vi/" element={<><Navbar /><Main /><Footer /></>} />
+                    <Route path="/id/" element={<><Navbar /><Main /><Footer /></>} />
                     <Route path="/" element={<><Navbar /><Main /><Footer /></>} />
 
                     <Route path="/tiktok-downloader" element={<><Navbar /><MainTiktok /><Footer /></>} />

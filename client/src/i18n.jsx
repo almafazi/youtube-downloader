@@ -8,12 +8,11 @@ import ar from './locales/ar.json';
 import vi from './locales/vi.json';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-// Custom language detection to support specific paths like /idv1
 const customLanguageDetector = {
   name: 'customPathDetector',
   lookup() {
     const path = window.location.pathname;
-    if (path.startsWith('/id')) return 'id'; // Detect as 'id' if path matches
+    if (path.startsWith('/id/')) return 'id'; // Detect as 'id' if path matches
     if (path.startsWith('/')) return 'en'; // Detect as 'id' if path matches
     const pathSegments = path.split('/');
     return pathSegments[1]; // Use the first part of the path as the language code

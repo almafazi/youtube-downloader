@@ -50,15 +50,15 @@ export default function Navbar() {
     i18n.changeLanguage(lang); // Change the language in i18n
   
     if (lang === 'id') {
-      navigate('/idv1'); // Redirect to /id for Indonesian
+      navigate('/id/'); // Redirect to /id for Indonesian
     } else if (lang === 'es') {
-      navigate('/es'); // Redirect to /es for Spanish
+      navigate('/es/'); // Redirect to /es for Spanish
     } else if (lang === 'pt') {
-      navigate('/pt'); // Redirect to /pt for Portuguese
+      navigate('/pt/'); // Redirect to /pt for Portuguese
     } else if (lang === 'ar') {
-      navigate('/ar'); // Redirect to /pt for Portuguese
+      navigate('/ar/'); // Redirect to /pt for Portuguese
     } else if (lang === 'vi') {
-      navigate('/vi'); // Redirect to /pt for Portuguese
+      navigate('/vi/'); // Redirect to /pt for Portuguese
     }else {
       navigate('/'); // Redirect to / for English
     }
