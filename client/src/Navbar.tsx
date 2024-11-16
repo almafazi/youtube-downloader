@@ -84,7 +84,7 @@ export default function Navbar() {
         <meta name="twitter:description" content={t('description')} />
         
         {/* Canonical URL */}
-        <link rel="canonical" href={`https://mp3.y2mate.one/${t('langCanonical') ? t('langCanonical') : ''}`} />
+        <link rel="canonical" href={`https://mp3.y2mate.one/${t('langCanonical') ? t('langCanonical')+'/' : ''}`} />
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           {/* <IconButton
