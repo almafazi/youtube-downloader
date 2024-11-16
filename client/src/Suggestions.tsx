@@ -1,7 +1,8 @@
-import { Box, SimpleGrid, Heading } from '@chakra-ui/react';
+import { Box, SimpleGrid, Heading, Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalBody } from '@chakra-ui/react';
 import Suggestion from './SuggestionV2';
 import SuggestionsSkeleton from './SuggestionsSkeleton';
 import { decodeStr } from './utils/helpers';
+import { useState } from 'react';
 
 interface Props {
   data: any[];
@@ -14,8 +15,15 @@ interface Props {
 
 export default function Suggestions(props: Props) {
   const { data, isLoading, chooseFormat, setUrlFromSearch, onOpen, input } = props;
+  const [isOpenYouTube, setIsOpenYouTube] = useState(false);
+  const [selectYoutubeId, setSelectYoutubeId] = useState(false);
+
+
+  const openYouTubeModal = () => setIsOpenYouTube(true);
+  const closeYouTubeModal = () => setIsOpenYouTube(false);
 
   return (
+    <>
     <Box>
       {!!data.length && (
         <Box mt="10" mb="5">
@@ -36,6 +44,8 @@ export default function Suggestions(props: Props) {
           return (
             <Suggestion
               data={suggestion}
+              openYouTubeModal={openYouTubeModal}
+              setSelectYoutubeId={setSelectYoutubeId}
               key={suggestion.id.videoId}
               chooseFormat={chooseFormat}
               setUrlFromSearch={setUrlFromSearch}
@@ -46,5 +56,22 @@ export default function Suggestions(props: Props) {
       </SimpleGrid>
       )}
     </Box>
+    <Modal isOpen={isOpenYouTube} onClose={closeYouTubeModal} size="xl">
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalBody padding="10">
+            <iframe
+              width="100%"
+              height="400px"
+              src={`https://www.youtube.com/embed/${selectYoutubeId}`}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
   );
 }

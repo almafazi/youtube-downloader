@@ -1,4 +1,4 @@
-import { ChevronDownIcon, DownloadIcon, TimeIcon } from '@chakra-ui/icons';
+import {DownloadIcon, ViewIcon } from '@chakra-ui/icons';
 import {
   Flex,
   Box,
@@ -38,6 +38,8 @@ interface Props {
   chooseFormat: (data: any) => void;
   setUrlFromSearch: (url: string) => void,
   onOpen: () => void,
+  openYouTubeModal: any,
+  setSelectYoutubeId: any
 }
 
 export default function SuggestionV2(props: Props) {
@@ -49,6 +51,8 @@ export default function SuggestionV2(props: Props) {
     chooseFormat,
     setUrlFromSearch,
     onOpen,
+    openYouTubeModal,
+    setSelectYoutubeId,
     data: { snippet, id },
   } = props;
 
@@ -90,8 +94,6 @@ export default function SuggestionV2(props: Props) {
         backgroundColor={useColorModeValue('gray.100', 'gray.600')}
         borderBottomRadius="lg"
       >
-
-            
         <ButtonGroup
           gap="1"
           flexWrap="wrap"
@@ -113,14 +115,14 @@ export default function SuggestionV2(props: Props) {
             </Button>
             <Button
               width="100%"
+              onClick={() => {
+                setSelectYoutubeId(id.videoId);
+                openYouTubeModal();
+              }}
               background={useColorModeValue('gray.300', 'gray.700')}
-              rel="noreferrer"
-              href={`https://www.youtube.com/watch?v=${id.videoId}`}
-              target="_blank"
-              as="a"
               marginInlineStart="0 !important"
             >
-              {t('openyoutube')}
+              <ViewIcon me={2} /> {t('openyoutube')}
             </Button>
         </ButtonGroup>
       </CardFooter>
