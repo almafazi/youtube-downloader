@@ -84,7 +84,7 @@ export default function Navbar() {
         <meta name="twitter:description" content={t('description')} />
         
         {/* Canonical URL */}
-        <link rel="canonical" href={`https://mp3.y2mate.one/${t('langCanonical') ? t('langCanonical') : ''}`} />
+        <link rel="canonical" href={`https://tiktok.y2mate.one/${t('langCanonical') ? t('langCanonical') : ''}`} />
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           {/* <IconButton
@@ -100,7 +100,7 @@ export default function Navbar() {
                 href={`${
                   isLocalHost
                     ? 'http://localhost:3000'
-                    : 'https://mp3.y2mate.one'
+                    : 'https://tiktok.y2mate.one'
                 }`}
                 _hover={{ textDecoration: 'none', color: 'gray.500' }}
               >
@@ -123,7 +123,7 @@ export default function Navbar() {
           </HStack>
           
           <Flex alignItems={'center'}>
-            <Link href="/blog/" mr={5} display="flex"
+            <Link href="https://mp3.y2mate.one/blog/" mr={5} display="flex"
                   alignItems="center"
                   textDecoration="none" 
                   color={'teal.200'}

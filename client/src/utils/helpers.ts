@@ -10,8 +10,9 @@ export const isYtUrl = (url: string) => {
   return ytRegex.test(url);
 };
 
-export const isTikTokUrl = (url: string) => {
-  return true;
+export const isTikTokUrl = (url: string): boolean => {
+  const tiktokRegex = /^.*https:\/\/(?:m|www|vm|vt)?\.?tiktok\.com\/((?:.*\b(?:(?:usr|v|embed|user|video|photo)\/|\?shareId=|\&item_id=)(\d+))|\w+)/;
+  return tiktokRegex.test(url);
 };
 
 /**

@@ -12,12 +12,18 @@ const customLanguageDetector = {
   name: 'customPathDetector',
   lookup() {
     const path = window.location.pathname;
-    if (path.startsWith('/id/')) return 'id'; // Detect as 'id' if path matches
-    if (path.startsWith('/')) return 'en'; // Detect as 'id' if path matches
-    const pathSegments = path.split('/');
-    return pathSegments[1]; // Use the first part of the path as the language code
+    if (path.startsWith('/id/')) return 'id';
+    if (path.startsWith('/en/')) return 'en';
+    if (path.startsWith('/pt/')) return 'pt';
+    if (path.startsWith('/vi/')) return 'vi';
+    if (path.startsWith('/ar/')) return 'ar';
+    if (path.startsWith('/es/')) return 'es';
+
+    // Fallback to browser language if path does not contain a language prefix
+    return navigator.language.split('-')[0] || 'en';
   },
 };
+
 
 i18n
   .use(LanguageDetector)

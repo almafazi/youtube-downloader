@@ -37,8 +37,9 @@ const DownloadHistoryItem: React.FC<{ item: HistoryItem }> = React.memo(
           alt={item.title}
           max-width="100px"
           width="100px"
-          height="auto"
+          height="70px"
           mr={2}
+          objectFit="cover"
         />
         <VStack spacing={1} align="flex-start">
           <Text

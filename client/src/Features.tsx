@@ -19,30 +19,36 @@ function Features() {
   const features = [
     {
       id: 1,
-      title: t('features.quick_and_user_friendly.title'),
-      text: t('features.quick_and_user_friendly.text'),
+      title: t('features.no_watermark.title'),
+      text: t('features.no_watermark.text'),
     },
     {
       id: 2,
-      title: t('features.unlimited_usage.title'),
-      text: t('features.unlimited_usage.text'),
+      title: t('features.mp3_only_download.title'),
+      text: t('features.mp3_only_download.text'),
     },
     {
       id: 3,
+      title: t('features.super_hd_quality.title'),
+      text: t('features.super_hd_quality.text'),
+    },
+    {
+      id: 4,
+      title: t('features.quick_and_easy.title'),
+      text: t('features.quick_and_easy.text'),
+    },
+    {
+      id: 5,
       title: t('features.supports_all_devices.title'),
       text: t('features.supports_all_devices.text'),
     },
     {
-      id: 4,
-      title: t('features.multiple_format_options.title'),
-      text: t('features.multiple_format_options.text'),
-    },
-    {
-      id: 5,
-      title: t('features.completely_secure_and_reliable.title'),
-      text: t('features.completely_secure_and_reliable.text'),
-    },
-  ];
+      id: 6,
+      title: t('features.completely_secure.title'),
+      text: t('features.completely_secure.text'),
+    }
+];
+
   return (
     <Box p={4}>
       <Stack spacing={2} as={Container} maxW={'3xl'} textAlign={'center'}>

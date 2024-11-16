@@ -207,6 +207,14 @@ export default function Main() {
         setConvertionLoading(false);
       }
     } else {
+      toast({
+        title: t('wrongurl', 'URL is not Tiktok'),
+        description:
+          t('wrongurl', 'Failed to download, URL is not Tiktok'),
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+      });
       setError(true);
       setConvertionLoading(false);
     }
@@ -215,11 +223,12 @@ export default function Main() {
   const chooseFormat = async (data: any) => {
     setDownloadUrl('');
     try {
+      console.log(data)
       setDownloadUrl(data.url);
       const downloadInfo = {
-        title: data.fileMetaData?.title,
+        title: data.metadata?.title,
         imageUrl: data.thumbnail_url,
-        videoLength: "0",
+        videoLength: data.duration,
         format,
         date: new Date(),
       };
@@ -246,7 +255,7 @@ export default function Main() {
               {colorMode === 'light' ? <LogoBlack width='85%' /> : <LogoWhite width='85%' />}
           </Flex>
           <Heading as="h1" size="md" mt="8" mb="7"> 
-            {t('tiktok.h1')}
+            {t('h1')}
           </Heading> 
           <Search
             handleFormatChange={handleFormatChange}
