@@ -29,7 +29,7 @@ import { getDownloadUrl, isYtUrl } from './utils/helpers';
 import { useTranslation } from 'react-i18next';
 import Article from './Article';
 import Search from './Search';
-import { FaFacebook, FaInstagram, FaTiktok, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaTiktok, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 export default function Main() {
   const { colorMode } = useColorMode();
@@ -282,10 +282,10 @@ export default function Main() {
         >
           <Button
             as="a"
-            href="https://tiktok.y2mate.one"
+            href="https://mp3.y2mate.one"
             target="_blank"
-            rel="noopener noreferrer"
-            leftIcon={<Icon as={FaTiktok} />}
+            title='Youtube MP3 & Video Downloader'
+            leftIcon={<Icon as={FaYoutube} />}
             colorScheme="blue"
             variant="outline"
             size="sm"
@@ -296,7 +296,7 @@ export default function Main() {
             as="a"
             href="https://instagram.y2mate.one"
             target="_blank"
-            rel="noopener noreferrer"
+            title='Y2Mate Instagram Downloader'
             leftIcon={<Icon as={FaInstagram} />}
             colorScheme="blue"
             variant="outline"
