@@ -1,96 +1,103 @@
 {
-  "welcome": "Welcome to our TikTok Downloader",
-  "openyoutube": "Open TikTok",
-  "duration": "Duration",
-  "contact": "Contact",
-  "stayuptodate": "Stay Up To Date",
-  "youremail": "Your Email",
-  "startdownload": "Starting download...",
-  "startdownloaddesc": "Downloading file now",
-  "faildownload": "Download Failed",
-  "faildownloaddesc": "Video duration exceeds the limit.",
-  "failsearch": "Video search failed.",
-  "failsearchdesc": "Unable to search for video, please try again later.",
-  "description": "Download TikTok videos in super HD quality without watermarks and convert TikTok to MP3 for free. The best TikTok downloader of 2024, offering fast downloads with no watermark and high-quality audio.",
-  "title": "TikTok Downloader - No Watermark, Super HD, MP3 Converter 2024",
-  "featureTitle": "Features",
-  "h1": "Download TikTok Videos in Super HD and MP3 Without Watermark",
-  "article": "<article><h2>Introduction</h2>\r\n  <p>TikTok has become one of the most popular social media platforms, offering endless entertainment through short videos. Now, you can easily download TikTok videos in <strong>super HD quality</strong> without any watermarks or convert them to MP3 for offline listening. <strong>Y2Mate.one</strong> is here to help you save and enjoy TikTok content on any device, anytime, for free!</p>\r\n\r\n  <h2>What is Y2Mate.one?</h2>\r\n  <p>Y2Mate.one is a web-based platform that allows users to <strong>download TikTok videos</strong> and extract MP3 audio without any hassle. Our service is completely free, secure, and doesn't require any software installation. With just a few clicks, you can download TikTok videos in high-quality formats, or convert them to MP3 for easy listening.</p>\r\n\r\n  <h2>Key Features of Y2Mate.one</h2>\r\n  <ul>\r\n    <li><strong>Watermark-Free Downloads:</strong> Download TikTok videos without any watermarks, preserving the video’s clean and original content.</li>\r\n    <li><strong>MP3 Audio Downloads:</strong> You can easily extract and download TikTok audio tracks in MP3 format to enjoy your favorite soundtracks offline.</li>\r\n    <li><strong>Super HD Quality:</strong> Our platform supports high-definition downloads up to 4K, providing the best viewing experience for your TikTok videos.</li>\r\n    <li><strong>Fast and Easy:</strong> No sign-up required—simply paste the TikTok video URL, choose your format, and hit 'Download' to start.</li>\r\n    <li><strong>Secure and Safe:</strong> Y2Mate.one ensures that all downloads are safe, free of malware, and hassle-free, offering a reliable user experience.</li>\r\n  </ul>\r\n\r\n  <h2>How to Download TikTok Videos and MP3s</h2>\r\n  <p>Follow these simple steps to download TikTok videos and MP3s:</p>\r\n  <ol>\r\n    <li>Go to TikTok and <strong>copy the URL</strong> of the video or audio you want to download.</li>\r\n    <li>Open <strong>Y2Mate.one</strong> in your web browser.</li>\r\n    <li><strong>Paste the URL</strong> into the input field on the homepage.</li>\r\n    <li>Select the format you want (HD video or MP3 audio).</li>\r\n    <li>Click the <strong>Download</strong> button and wait for the conversion to finish.</li>\r\n    <li>Save the file to your device and enjoy it offline.</li>\r\n  </ol>\r\n\r\n  <h2>Why Choose Y2Mate.one for TikTok Downloads?</h2>\r\n  <p>Unlike many other TikTok downloaders, Y2Mate.one stands out because we offer unlimited access to download videos in HD quality without watermarks and convert them to MP3. You can download TikTok videos for free with no restrictions, providing you with a flexible, user-friendly, and secure experience.</p>\r\n\r\n  <h2>Frequently Asked Questions (FAQ)</h2>\r\n  <h3>1. Is Y2Mate.one Legal to Use?</h3>\r\n  <p>Y2Mate.one is designed for <strong>personal use only</strong>. We recommend respecting TikTok’s terms of service and copyright laws when downloading content.</p>\r\n\r\n  <h3>2. Can I Download TikTok MP3s?</h3>\r\n  <p>Yes, you can easily download TikTok audio in MP3 format, making it perfect for music and soundtracks.</p>\r\n\r\n  <h3>3. Can I Download Videos Without Watermarks?</h3>\r\n  <p>Yes! All TikTok videos are downloaded without watermarks on Y2Mate.one, so you can enjoy a clean, unbranded experience.</p>\r\n\r\n  <h3>4. Are There Any Device Restrictions?</h3>\r\n  <p>No, Y2Mate.one works on all devices, including Windows, Mac, Android, iOS, and more. As long as you have a web browser, you can download TikTok content.</p>\r\n\r\n  <h2>Conclusion</h2>\r\n  <p>Y2Mate.one is the ultimate solution for downloading TikTok videos in HD and MP3 formats without watermarks. Whether you want to save your favorite videos for offline viewing or extract MP3 audio, Y2Mate.one provides a simple, fast, and secure way to do so. Try it today and start downloading your TikTok content hassle-free!</p>\r\n</article>",
-  "langCode": "en",
-  "langCanonical": "en",
-  "downloadHistory": "Download History",
-  "searchOrPaste": "Search TikTok or paste TikTok link here",
-  "feature": "Discover the powerful features of our TikTok Downloader, designed to offer the best video and MP3 download experience.",
-  "features": {
-            "no_watermark": {
-                "title": "Watermark-Free Downloads",
-                "text": "Download TikTok videos without watermarks, preserving the content’s original quality and appearance."
-            },
-            "mp3_only_download": {
-                "title": "Download TikTok MP3s",
-                "text": "Convert and download TikTok audio to MP3 with ease, allowing you to enjoy music, soundtracks, and more offline."
-            },
-            "super_hd_quality": {
-                "title": "Super HD Quality",
-                "text": "Enjoy ultra-high-definition TikTok video downloads at no extra cost, with crystal-clear visuals up to 4K."
-            },
-            "quick_and_easy": {
-                "title": "Quick and Easy",
-                "text": "No account needed. Just paste the TikTok video URL, choose your format, and hit 'Download'—simple as that!"
-            },
-            "supports_all_devices": {
-                "title": "Works on All Devices",
-                "text": "Y2Mate.one works seamlessly on any device, including Windows, Mac, Android, iOS, and more. Download TikTok videos or MP3s anywhere."
-            },
-            "completely_secure": {
-                "title": "Completely Secure and Safe",
-                "text": "Our platform ensures that all downloads are safe, free from malware, and secure, giving you peace of mind while you download."
-            }
-        },
-  "comingsoon": {
-      "pagination": {
-          "title": "Pagination",
-          "text": "Navigate through search results with ease, displaying five videos at a time for a smoother browsing experience."
-      },
-      "playlist_downloads": {
-          "title": "Playlist Downloads",
-          "text": "Download entire playlists from TikTok in just a few clicks."
-      },
-      "progress_bar": {
-          "title": "Download Progress Bar",
-          "text": "Track your downloads with a real-time progress bar."
-      },
-      "quality_choice": {
-          "title": "Quality Choice",
-          "text": "Select the video or MP3 quality that best suits your needs, from standard HD to super high-definition."
-      },
-      "download_history_cache": {
-          "title": "Download History",
-          "text": "Keep track of your download history for faster and more efficient access to previous files."
-      },
-      "batch_download": {
-          "title": "Batch Download",
-          "text": "Download multiple TikTok videos at once by entering several URLs for simultaneous downloads."
-      },
-      "video_preview": {
-          "title": "Video Preview",
-          "text": "Preview videos before downloading to ensure you're getting the right content."
-      },
-      "edit_video_points": {
-          "title": "Edit Video Start and End Points",
-          "text": "Trim TikTok videos by editing their start and end points before downloading."
-      },
-      "feature_request_form": {
-          "title": "Contact Form",
-          "text": "Submit feature requests or report any issues via our contact form."
-      },
-      "chrome_extension": {
-          "title": "Chrome Extension",
-          "text": "We’re exploring the possibility of releasing a Chrome extension. Let us know if you’d like to see this feature!"
-      },
-      "electron_app": {
-          "title": "Desktop App",
-          "text": "We're considering a desktop app based on Electron for Windows users. Stay tuned for updates!"
-      }
+    "welcome": "Welcome to our Instagram Downloader",
+    "openyoutube": "Open Instagram",
+    "duration": "Duration",
+    "contact": "Contact",
+    "stayuptodate": "Stay Updated",
+    "youremail": "Your Email",
+    "startdownload": "Starting download...",
+    "startdownloaddesc": "Downloading file now",
+    "faildownload": "Download Failed",
+    "faildownloaddesc": "The video duration exceeds the allowed limit.",
+    "failsearch": "Content search failed.",
+    "failsearchdesc": "Unable to search for content, please try again later.",
+    "description": "Download Instagram stories, reels, posts, and convert content to MP3 effortlessly. The best Instagram downloader of 2024, offering fast, high-quality downloads for all your favorite Instagram content.",
+    "title": "Instagram Downloader - Stories, Reels, Posts, and MP3 Converter",
+    "featureTitle": "Features",
+    "h1": "Download Instagram Stories, Reels, Posts, and Convert to MP3",
+    "article": "<article><h2>Introduction</h2>\r\n  <p>Instagram is a hub for captivating stories, reels, and posts. Now, with our Instagram Downloader, you can save your favorite content effortlessly and even convert it to MP3 for audio-only enjoyment. Download Instagram stories, reels, posts, and audio files in high quality with ease.</p>\r\n\r\n  <h2>What is Our Instagram Downloader?</h2>\r\n  <p>Our Instagram Downloader is a web-based tool that allows you to <strong>download Instagram stories, reels, posts,</strong> and convert content into MP3 audio. No app installation or sign-up is required, making it a fast, secure, and hassle-free solution.</p>\r\n\r\n  <h2>Key Features of Our Instagram Downloader</h2>\r\n  <ul>\r\n    <li><strong>Story Downloads:</strong> Save Instagram stories before they disappear, ensuring you never miss memorable moments.</li>\r\n    <li><strong>Reel Downloads:</strong> Download Instagram reels in high-definition quality for offline viewing.</li>\r\n    <li><strong>Post Downloads:</strong> Easily download Instagram posts, including images and videos, in their original quality.</li>\r\n    <li><strong>MP3 Conversion:</strong> Convert Instagram video or audio content into MP3 files for easy listening.</li>\r\n    <li><strong>Fast and Easy:</strong> No registration needed—just paste the Instagram URL, select your format, and click ‘Download.’</li>\r\n    <li><strong>Secure and Safe:</strong> Enjoy downloads that are free from malware and completely secure.</li>\r\n    <li><strong>Cross-Platform Compatibility:</strong> Works on all devices, including Windows, Mac, Android, and iOS.</li>\r\n  </ul>\r\n\r\n  <h2>How to Download Instagram Stories, Reels, Posts, and MP3s</h2>\r\n  <p>Follow these steps to download Instagram content or convert it to MP3:</p>\r\n  <ol>\r\n    <li>Visit Instagram and <strong>copy the URL</strong> of the story, reel, post, or audio you want to download.</li>\r\n    <li>Open our Instagram Downloader in your browser.</li>\r\n    <li><strong>Paste the URL</strong> into the input field on the homepage.</li>\r\n    <li>Choose your preferred format (e.g., HD video or MP3 audio).</li>\r\n    <li>Click <strong>Download</strong> and wait for the file to process.</li>\r\n    <li>Save the downloaded file to your device and enjoy it offline.</li>\r\n  </ol>\r\n\r\n  <h2>Why Choose Our Instagram Downloader?</h2>\r\n  <p>We provide a seamless, fast, and secure way to download Instagram content. Unlike other tools, our downloader supports multiple formats, including MP3, and offers unlimited downloads for free.</p>\r\n\r\n  <h2>Frequently Asked Questions (FAQ)</h2>\r\n  <h3>1. Can I Download Stories, Reels, and Posts?</h3>\r\n  <p>Yes! You can download Instagram stories, reels, and posts in their original quality.</p>\r\n\r\n  <h3>2. Can I Convert Instagram Content to MP3?</h3>\r\n  <p>Absolutely! Our tool allows you to extract audio from Instagram content and save it as MP3.</p>\r\n\r\n  <h3>3. Is Your Instagram Downloader Free?</h3>\r\n  <p>Yes, it’s completely free with no hidden costs or restrictions.</p>\r\n\r\n  <h3>4. Does It Work on All Devices?</h3>\r\n  <p>Yes, our downloader works seamlessly on all devices, including desktops, laptops, tablets, and smartphones.</p>\r\n\r\n  <h2>Conclusion</h2>\r\n  <p>With our Instagram Downloader, you can save stories, reels, posts, and convert them to MP3 easily. Enjoy high-quality downloads with no hassle—try it today and take control of your favorite Instagram content!</p>\r\n</article>",
+    "langCode": "en",
+    "langCanonical": "",
+    "downloadHistory": "Download History",
+    "searchOrPaste": "Paste Instagram link here",
+    "feature": "Discover the powerful features of our Instagram Downloader, designed for the best story, reel, post, and MP3 download experience.",
+    "features": {
+              "story_download": {
+                  "title": "Download Instagram Stories",
+                  "text": "Save Instagram stories in high quality before they expire, so you never miss your favorite moments."
+              },
+              "reel_download": {
+                  "title": "Download Instagram Reels",
+                  "text": "Download Instagram reels in stunning resolution for offline access anytime."
+              },
+              "post_download": {
+                  "title": "Download Instagram Posts",
+                  "text": "Save Instagram posts, including photos and videos, in their original format and quality."
+              },
+              "mp3_conversion": {
+                  "title": "Convert to MP3",
+                  "text": "Easily extract and download Instagram audio tracks as MP3 files for offline listening."
+              },
+              "quick_and_easy": {
+                  "title": "Quick and Easy",
+                  "text": "No sign-up required. Paste the Instagram link, select your format, and hit 'Download.'"
+              },
+              "supports_all_devices": {
+                  "title": "Works on All Devices",
+                  "text": "Our downloader is compatible with any device—Windows, Mac, Android, iOS, and more."
+              },
+              "completely_secure": {
+                  "title": "Completely Secure",
+                  "text": "We ensure all downloads are safe, malware-free, and completely secure."
+              }
+          },
+    "comingsoon": {
+  "pagination": {
+    "title": "Pagination",
+    "text": "Browse search results effortlessly, showing a few results at a time for easy navigation."
+  },
+  "playlist_downloads": {
+    "title": "Batch Downloads",
+    "text": "Download multiple Instagram stories, reels, or posts at once."
+  },
+  "progress_bar": {
+    "title": "Download Progress Bar",
+    "text": "Track your downloads with a live progress bar."
+  },
+  "quality_choice": {
+    "title": "Quality Choice",
+    "text": "Choose the download quality that fits your needs, from standard to high definition."
+  },
+  "download_history_cache": {
+    "title": "Download History",
+    "text": "Keep track of your downloads for quick and easy access later."
+  },
+  "video_preview": {
+    "title": "Preview Before Download",
+    "text": "View content before downloading to ensure you get exactly what you need."
+  },
+  "edit_video_points": {
+    "title": "Edit Video Points",
+    "text": "Trim Instagram videos by adjusting the start and end points before downloading."
+  },
+  "batch_download": {
+    "title": "Batch Download",
+    "text": "Download multiple files at once, including stories, reels, posts, and MP3s."
+  },
+  "feature_request_form": {
+    "title": "Contact Form",
+    "text": "Share feature requests or report issues directly through our contact form."
+  },
+  "chrome_extension": {
+    "title": "Chrome Extension",
+    "text": "Enjoy the convenience of downloading Instagram content directly from your browser with our Chrome extension."
+  },
+  "electron_app": {
+    "title": "Desktop App",
+    "text": "We are exploring the possibility of a desktop app based on Electron to make Instagram downloads easier on Windows and macOS."
   }
 }
+
+
+  }
+  

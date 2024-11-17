@@ -211,8 +211,8 @@ export default function Footer() {
             <Flex alignItems="center" flexDirection="column">
               <Text>
                 Made by{' '}
-                <Link href="https://tiktok.y2mate.one" target="_blank">
-                  Y2Mate Tiktok
+                <Link href="https://instagram.y2mate.one" target="_blank">
+                  Y2Mate Instagram
                 </Link>
               </Text>
               <HeartIcon

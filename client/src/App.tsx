@@ -6,7 +6,7 @@ import { I18nextProvider, useTranslation} from 'react-i18next';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NotFound from './NotFound';
 import { useEffect } from 'react';
-import MainTiktok from './Pages/Tiktok/Main';
+import MainInstagram from './Pages/Instagram/Main';
 
 const theme = extendTheme({
   config: {
@@ -39,12 +39,12 @@ export const App = () => {
                     {/* <Route path="/" element={<Navigate to="/en-ENwRL" />} /> */}
 
                     {/* Route definition */}
-                    <Route path="/pt/" element={<><Navbar /><MainTiktok /><Footer /></>} />
-                    <Route path="/es/" element={<><Navbar /><MainTiktok /><Footer /></>} />
-                    <Route path="/ar/" element={<><Navbar /><MainTiktok /><Footer /></>} />
-                    <Route path="/vi/" element={<><Navbar /><MainTiktok /><Footer /></>} />
-                    <Route path="/id/" element={<><Navbar /><MainTiktok /><Footer /></>} />
-                    <Route path="/" element={<><Navbar /><MainTiktok /><Footer /></>} />
+                    <Route path="/pt/" element={<><Navbar /><MainInstagram /><Footer /></>} />
+                    <Route path="/es/" element={<><Navbar /><MainInstagram /><Footer /></>} />
+                    <Route path="/ar/" element={<><Navbar /><MainInstagram /><Footer /></>} />
+                    <Route path="/vi/" element={<><Navbar /><MainInstagram /><Footer /></>} />
+                    <Route path="/id/" element={<><Navbar /><MainInstagram /><Footer /></>} />
+                    <Route path="/" element={<><Navbar /><MainInstagram /><Footer /></>} />
                     
                     {/* Custom 404 page */}
                     <Route path="*" element={<NotFound />} />

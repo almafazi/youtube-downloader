@@ -48,7 +48,7 @@ const Search = (props: Props) => {
         onChange={handleFormatChange} 
         width={['65%', '200px']} // 48% width on mobile (to ensure both fit), 120px on desktop
       >
-        <option value="MP4">MP4 No Watermark</option>
+        <option value="MP4">MP4</option>
         <option value="MP3">MP3</option>
       </Select>
       

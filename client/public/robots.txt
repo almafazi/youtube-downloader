@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tiktok.y2mate.one/sitemap.xml
+Sitemap: https://instagram.y2mate.one/sitemap.xml

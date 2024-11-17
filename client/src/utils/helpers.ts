@@ -15,6 +15,12 @@ export const isTikTokUrl = (url: string): boolean => {
   return tiktokRegex.test(url);
 };
 
+export const isInstagramUrl = (url: string): boolean => {
+  const instagramRegex = /^(https?:\/\/)?(www\.)?instagram\.com(\/|$)/;
+  return instagramRegex.test(url);
+};
+
+
 /**
  * Check if the page is running on localhost (dev environment).
  */

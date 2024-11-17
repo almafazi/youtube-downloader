@@ -15,39 +15,44 @@ import { useTranslation } from 'react-i18next';
 
 function Features() {
   const { t } = useTranslation();
-
   const features = [
     {
       id: 1,
-      title: t('features.no_watermark.title'),
-      text: t('features.no_watermark.text'),
+      title: t('features.story_download.title'),
+      text: t('features.story_download.text'),
     },
     {
       id: 2,
-      title: t('features.mp3_only_download.title'),
-      text: t('features.mp3_only_download.text'),
+      title: t('features.reel_download.title'),
+      text: t('features.reel_download.text'),
     },
     {
       id: 3,
-      title: t('features.super_hd_quality.title'),
-      text: t('features.super_hd_quality.text'),
+      title: t('features.post_download.title'),
+      text: t('features.post_download.text'),
     },
     {
       id: 4,
+      title: t('features.mp3_conversion.title'),
+      text: t('features.mp3_conversion.text'),
+    },
+    {
+      id: 5,
       title: t('features.quick_and_easy.title'),
       text: t('features.quick_and_easy.text'),
     },
     {
-      id: 5,
+      id: 6,
       title: t('features.supports_all_devices.title'),
       text: t('features.supports_all_devices.text'),
     },
     {
-      id: 6,
+      id: 7,
       title: t('features.completely_secure.title'),
       text: t('features.completely_secure.text'),
     }
-];
+  ];
+  
 
   return (
     <Box p={4}>

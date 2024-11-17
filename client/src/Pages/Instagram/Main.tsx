@@ -6,15 +6,11 @@ import {
   useColorMode,
   Button,
   useToast,
-  Alert,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
   Flex,
   SimpleGrid,
   Icon,
 } from '@chakra-ui/react';
-import { FaFacebook, FaInstagram, FaTiktok, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaTiktok, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 import { useEffect, useRef, useState } from 'react';
 import Features from '../../Features';
@@ -24,11 +20,10 @@ import LogoWhite from '../../Icons/LogoWhite';
 import NothingFoundAlert from '../../NothingFoundAlert';
 import PreviewBox from './PreviewBox';
 import Search from './Search';
-import SelectFormat from '../../SelectFormat';
 import Sidebar, { HistoryItem } from '../../Sidebar';
 import Suggestions from '../../Suggestions';
-import { fetchInfo, getInfos, getSearch, getSuggestions } from '../../utils/API';
-import { getDownloadUrl, isTikTokUrl, isYtUrl } from '../../utils/helpers';
+import { fetchInfo, getSearch, getSuggestions } from '../../utils/API';
+import { isInstagramUrl, } from '../../utils/helpers';
 import { useTranslation } from 'react-i18next';
 import Article from '../../Article';
 
@@ -174,21 +169,19 @@ export default function Main() {
     setSuggestions([]);
     setCurrentVideo(null);
     setPagingInfo([]);
-    const isTiktokUrlTrue = isTikTokUrl(input);
+    const isInstagram = isInstagramUrl(input);
     if (!input) {
       setError(true);
       return;
     }
-    if (isTiktokUrlTrue) {
+    if (isInstagram) {
       setError(false);
       setConvertionLoading(true);
       try {
         // const response = await fetch('/dummy.json');
         // const data = await response.json();
         const formData = {
-          tiktokFullAudio: true,
           downloadMode: format == 'MP3' ? "audio" : "auto",
-          tiktokH265: true,
           videoQuality: 'max',
           url: input
         };
@@ -212,9 +205,9 @@ export default function Main() {
       }
     } else {
       toast({
-        title: t('wrongurl', 'URL is not Tiktok'),
+        title: t('wrongurl', 'URL is not Instagram'),
         description:
-          t('wrongurl', 'Failed to download, URL is not Tiktok'),
+          t('wrongurl', 'Failed to download, URL is not Instagram'),
         status: 'error',
         duration: 9000,
         isClosable: true,
@@ -281,7 +274,7 @@ export default function Main() {
         </Box>
         <Box textAlign="center" fontSize="xl" mt="8">
         <SimpleGrid
-          columns={{ base: 2, md: 4 }} // 2 columns on small screens, 4 on medium and up
+          columns={{ base: 2, md: 2 }} // 2 columns on small screens, 4 on medium and up
           spacing="4" // Adjust spacing between buttons
           justifyContent="center"
           alignItems="center"
@@ -290,9 +283,9 @@ export default function Main() {
           <Button
             as="a"
             href="https://mp3.y2mate.one"
-            target="_blank"
-            rel="noopener noreferrer"
-            leftIcon={<Icon as={FaTiktok} />}
+            target="_blank"            
+            title='Youtube MP3 & Video Downloader'
+            leftIcon={<Icon as={FaYoutube} />}
             colorScheme="blue"
             variant="outline"
             size="sm"
@@ -303,17 +296,17 @@ export default function Main() {
           <Button
             as="a"
             href="https://tiktok.y2mate.one"
-            target="_blank"
-            rel="noopener noreferrer"
-            leftIcon={<Icon as={FaInstagram} />}
+            target="_blank"            
+            title='Youtube MP3 & Video Downloader'
+            leftIcon={<Icon as={FaTiktok} />}
             colorScheme="blue"
             variant="outline"
             size="sm"
             fontSize={13}
           >
-            IG Downloader
+            Tiktok Downloader
           </Button>
-          <Button
+          {/* <Button
             as="a"
             href="https://tiktok.y2mate.one"
             target="_blank"
@@ -338,7 +331,7 @@ export default function Main() {
             fontSize={13}
           >
             X Downloader
-          </Button>
+          </Button> */}
         </SimpleGrid>
 
         </Box>
