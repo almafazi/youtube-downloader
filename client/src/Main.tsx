@@ -274,7 +274,7 @@ export default function Main() {
         <Box textAlign="center" fontSize="xl" mt="8">
 
         <SimpleGrid
-          columns={{ base: 2, md: 4 }} // 2 columns on small screens, 4 on medium and up
+          columns={{ base: 2, md: 2 }} // 2 columns on small screens, 4 on medium and up
           spacing="4" // Adjust spacing between buttons
           justifyContent="center"
           alignItems="center"
