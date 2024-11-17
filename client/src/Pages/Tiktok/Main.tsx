@@ -14,7 +14,7 @@ import {
   SimpleGrid,
   Icon,
 } from '@chakra-ui/react';
-import { FaFacebook, FaInstagram, FaTiktok, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaTiktok, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 import { useEffect, useRef, useState } from 'react';
 import Features from '../../Features';
@@ -281,7 +281,7 @@ export default function Main() {
         </Box>
         <Box textAlign="center" fontSize="xl" mt="8">
         <SimpleGrid
-          columns={{ base: 2, md: 4 }} // 2 columns on small screens, 4 on medium and up
+          columns={{ base: 2, md: 2 }} // 2 columns on small screens, 4 on medium and up
           spacing="4" // Adjust spacing between buttons
           justifyContent="center"
           alignItems="center"
@@ -291,8 +291,8 @@ export default function Main() {
             as="a"
             href="https://mp3.y2mate.one"
             target="_blank"
-            rel="noopener noreferrer"
-            leftIcon={<Icon as={FaTiktok} />}
+            title='Y2Mate Youtube Downloader'
+            leftIcon={<Icon as={FaYoutube} />}
             colorScheme="blue"
             variant="outline"
             size="sm"
@@ -302,9 +302,9 @@ export default function Main() {
           </Button>
           <Button
             as="a"
-            href="https://tiktok.y2mate.one"
+            href="https://instagram.y2mate.one"
             target="_blank"
-            rel="noopener noreferrer"
+            title='Y2Mate Instagram Downloader'
             leftIcon={<Icon as={FaInstagram} />}
             colorScheme="blue"
             variant="outline"
@@ -313,7 +313,7 @@ export default function Main() {
           >
             IG Downloader
           </Button>
-          <Button
+          {/* <Button
             as="a"
             href="https://tiktok.y2mate.one"
             target="_blank"
@@ -338,7 +338,7 @@ export default function Main() {
             fontSize={13}
           >
             X Downloader
-          </Button>
+          </Button> */}
         </SimpleGrid>
 
         </Box>
