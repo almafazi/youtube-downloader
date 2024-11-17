@@ -308,7 +308,7 @@ export default function Main() {
     as="a"
     href="https://tiktok.y2mate.one"
     target="_blank"
-    rel="noopener noreferrer"
+    title='Y2Mate Tiktok Downloader'
     leftIcon={<Icon as={FaTiktok} />}
     colorScheme="blue"
     variant="outline"
@@ -320,7 +320,7 @@ export default function Main() {
     as="a"
     href="https://instagram.y2mate.one"
     target="_blank"
-    rel="noopener noreferrer"
+    title='Y2Mate Instagram Downloader'
     leftIcon={<Icon as={FaInstagram} />}
     colorScheme="blue"
     variant="outline"
