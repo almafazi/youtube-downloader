@@ -11,7 +11,11 @@ import {
   AlertIcon,
   AlertTitle,
   Flex,
+  SimpleGrid,
+  Icon,
 } from '@chakra-ui/react';
+import { FaFacebook, FaInstagram, FaTiktok, FaTwitter } from 'react-icons/fa';
+
 import { useEffect, useRef, useState } from 'react';
 import Features from '../../Features';
 import FeaturesComingSoon from '../../FeaturesComingSoon';
@@ -274,6 +278,69 @@ export default function Main() {
             chooseFormat={chooseFormat}
             isLoading={isConvertionLoading}
           />
+        </Box>
+        <Box textAlign="center" fontSize="xl" mt="8">
+        <SimpleGrid
+          columns={{ base: 2, md: 4 }} // 2 columns on small screens, 4 on medium and up
+          spacing="4" // Adjust spacing between buttons
+          justifyContent="center"
+          alignItems="center"
+          mt="8"
+        >
+          <Button
+            as="a"
+            href="https://mp3.y2mate.one"
+            target="_blank"
+            rel="noopener noreferrer"
+            leftIcon={<Icon as={FaTiktok} />}
+            colorScheme="blue"
+            variant="outline"
+            size="sm"
+            fontSize={13}
+          >
+            Youtube Downloader
+          </Button>
+          <Button
+            as="a"
+            href="https://tiktok.y2mate.one"
+            target="_blank"
+            rel="noopener noreferrer"
+            leftIcon={<Icon as={FaInstagram} />}
+            colorScheme="blue"
+            variant="outline"
+            size="sm"
+            fontSize={13}
+          >
+            IG Downloader
+          </Button>
+          <Button
+            as="a"
+            href="https://tiktok.y2mate.one"
+            target="_blank"
+            rel="noopener noreferrer"
+            leftIcon={<Icon as={FaFacebook} />}
+            colorScheme="blue"
+            variant="outline"
+            size="sm"
+            fontSize={13}
+          >
+            FB Downloader
+          </Button>
+          <Button
+            as="a"
+            href="https://tiktok.y2mate.one"
+            target="_blank"
+            rel="noopener noreferrer"
+            leftIcon={<Icon as={FaTwitter} />}
+            colorScheme="blue"
+            variant="outline"
+            size="sm"
+            fontSize={13}
+          >
+            X Downloader
+          </Button>
+        </SimpleGrid>
+
         </Box>
         {pagingInfo?.items?.length === 0 && <NothingFoundAlert />}
         <Suggestions

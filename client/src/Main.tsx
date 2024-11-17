@@ -11,6 +11,8 @@ import {
   AlertIcon,
   AlertTitle,
   Flex,
+  SimpleGrid,
+  Icon,
 } from '@chakra-ui/react';
 import { useEffect, useRef, useState } from 'react';
 import Features from './Features';
@@ -27,6 +29,7 @@ import { getDownloadUrl, isYtUrl } from './utils/helpers';
 import { useTranslation } from 'react-i18next';
 import Article from './Article';
 import Search from './Search';
+import { FaFacebook, FaInstagram, FaTiktok, FaTwitter } from 'react-icons/fa';
 
 export default function Main() {
   const { colorMode } = useColorMode();
@@ -267,6 +270,66 @@ export default function Main() {
             chooseFormat={chooseFormat}
             isLoading={isConvertionLoading}
           />
+        </Box>
+        <Box textAlign="center" fontSize="xl" mt="8">
+
+        <SimpleGrid
+          columns={{ base: 2, md: 4 }} // 2 columns on small screens, 4 on medium and up
+          spacing="4" // Adjust spacing between buttons
+          justifyContent="center"
+          alignItems="center"
+          mt="8"
+        >
+          <Button
+            as="a"
+            href="https://tiktok.y2mate.one"
+            target="_blank"
+            rel="noopener noreferrer"
+            leftIcon={<Icon as={FaTiktok} />}
+            colorScheme="blue"
+            variant="outline"
+            size="sm"
+          >
+            Tiktok Downloader
+          </Button>
+          <Button
+            as="a"
+            href="https://tiktok.y2mate.one"
+            target="_blank"
+            rel="noopener noreferrer"
+            leftIcon={<Icon as={FaInstagram} />}
+            colorScheme="blue"
+            variant="outline"
+            size="sm"
+          >
+            IG Downloader
+          </Button>
+          <Button
+            as="a"
+            href="https://tiktok.y2mate.one"
+            target="_blank"
+            rel="noopener noreferrer"
+            leftIcon={<Icon as={FaFacebook} />}
+            colorScheme="blue"
+            variant="outline"
+            size="sm"
+          >
+            FB Downloader
+          </Button>
+          <Button
+            as="a"
+            href="https://tiktok.y2mate.one"
+            target="_blank"
+            rel="noopener noreferrer"
+            leftIcon={<Icon as={FaTwitter} />}
+            colorScheme="blue"
+            variant="outline"
+            size="sm"
+          >
+            X Downloader
+          </Button>
+        </SimpleGrid>
+
         </Box>
         {pagingInfo?.items?.length === 0 && <NothingFoundAlert />}
         <Suggestions

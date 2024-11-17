@@ -125,9 +125,7 @@ export default function Navbar() {
           <Flex alignItems={'center'}>
             <Link href="https://mp3.y2mate.one/blog/" mr={5} display="flex"
                   alignItems="center"
-                  textDecoration="none" 
-                  color={'teal.200'}
-                  _hover={{ color: 'teal.500' }}  >
+                  textDecoration="none"   >
                   <BlogNewsIcon mr="2" w={5} h={5} />       
                   <Text>Blog</Text>
             </Link>
