@@ -290,7 +290,7 @@ export default function Main() {
             variant="outline"
             size="sm"
           >
-            Tiktok Downloader
+            Youtube Downloader
           </Button>
           <Button
             as="a"
