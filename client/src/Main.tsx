@@ -294,7 +294,7 @@ export default function Main() {
           </Button>
           <Button
             as="a"
-            href="https://tiktok.y2mate.one"
+            href="https://instagram.y2mate.one"
             target="_blank"
             rel="noopener noreferrer"
             leftIcon={<Icon as={FaInstagram} />}
@@ -304,7 +304,7 @@ export default function Main() {
           >
             IG Downloader
           </Button>
-          <Button
+          {/* <Button
             as="a"
             href="https://tiktok.y2mate.one"
             target="_blank"
@@ -327,7 +327,7 @@ export default function Main() {
             size="sm"
           >
             X Downloader
-          </Button>
+          </Button> */}
         </SimpleGrid>
 
         </Box>
