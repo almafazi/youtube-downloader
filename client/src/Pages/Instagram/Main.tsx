@@ -282,8 +282,7 @@ export default function Main() {
         >
           <Button
             as="a"
-            href="https://mp3.y2mate.one"
-            target="_blank"            
+            href="https://mp3.y2mate.one"       
             title='Youtube MP3 & Video Downloader'
             leftIcon={<Icon as={FaYoutube} />}
             colorScheme="blue"
@@ -295,8 +294,7 @@ export default function Main() {
           </Button>
           <Button
             as="a"
-            href="https://tiktok.y2mate.one"
-            target="_blank"            
+            href="https://tiktok.y2mate.one"       
             title='Youtube MP3 & Video Downloader'
             leftIcon={<Icon as={FaTiktok} />}
             colorScheme="blue"
