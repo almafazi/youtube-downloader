@@ -31,13 +31,17 @@ import { fetchInfo, getInfos, getSearch, getSuggestions } from '../../utils/API'
 import { getDownloadUrl, isTikTokUrl, isYtUrl } from '../../utils/helpers';
 import { useTranslation } from 'react-i18next';
 import Article from '../../Article';
+import { useSearchParams } from 'react-router-dom';
 
 export default function Main() {
   const { colorMode } = useColorMode();
   const toast = useToast();
   const [format, setFormat] = useState('MP4');
   const [downloadUrl, setDownloadUrl] = useState('');
-  const [input, setInput] = useState('');
+
+  const [searchParams] = useSearchParams();
+  const defaultUrl = searchParams.get('url') || '';
+  const [input, setInput] = useState(defaultUrl);
   const [isConvertionLoading, setConvertionLoading] = useState(false);
   const [isSearchLoading, setSearchLoading] = useState(false);
   const [currentVideo, setCurrentVideo] = useState(null);
@@ -53,6 +57,12 @@ export default function Main() {
     const storedDownloads = localStorage.getItem('downloads');
     if (storedDownloads && JSON.parse(storedDownloads)?.length > 0) {
       setDownloads(JSON.parse(storedDownloads));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (defaultUrl) {
+      handleSearch();    
     }
   }, []);
 
