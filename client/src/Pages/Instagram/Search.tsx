@@ -43,21 +43,21 @@ const Search = (props: Props) => {
       mt={['2', '0']} // Add margin top only on mobile
       gridGap={['2', '2']} // Add space between items on mobile, no gap on desktop
     >
-      <Select 
+      {/* <Select 
         value={format} 
         onChange={handleFormatChange} 
         width={['65%', '200px']} // 48% width on mobile (to ensure both fit), 120px on desktop
       >
         <option value="MP4">MP4</option>
         <option value="MP3">MP3</option>
-      </Select>
+      </Select> */}
       
       <Button
         px={6}
         onClick={handleSearch}
         isLoading={isLoading}
         loadingText="Converting..."
-        width={['48%', 'auto']} // 48% width on mobile, auto width on desktop
+        width={['100%', 'auto']} // 48% width on mobile, auto width on desktop
       >
         Download
       </Button>

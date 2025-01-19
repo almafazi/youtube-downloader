@@ -84,8 +84,9 @@ export default function ConvertBox(props: Props) {
           <Grid alignItems="center" templateColumns={{ base: '1fr', md: 'auto 1fr' }} mb={5} gap={4} flexDirection={'column'}>
             <Image
               borderRadius="sm"
-              src={data.thumbnail_url}
-              alt={`Thumbnail of ${data.metadata?.title}`}
+              src={data.thumbnail_url ?? data.url}
+              alt={`Thumbnail`}
+              maxWidth={{ base: 'none', md: '400px' }}
               width={{ base: '100%', md: 'auto' }} // Adjust width for mobile
             />
             <Box p="0.5">
@@ -93,7 +94,11 @@ export default function ConvertBox(props: Props) {
               <Text mb="5" size="sm">{data.metadata?.artist}</Text>
               <Button leftIcon={<DownloadIcon />} 
                 loadingText="Downloading..."
-                isLoading={isLoading} onClick={handleDownload} variant='solid'>
+                isLoading={isLoading}
+                as="a"
+  target="_blank"
+                href={data.thumbnail_url ?? data.url}
+                variant='solid'>
                 {data.format == 'MP4' ? 'Download' : 'Download MP3' }
               </Button>
             </Box>
