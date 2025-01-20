@@ -245,7 +245,7 @@ export default function Main() {
   const chooseFormat = async (data: any) => {
     setDownloadUrl('');
     try {
-      setDownloadUrl(data.url);
+      setDownloadUrl(data.metadata?.externalDownloadUrl ?? data.url);
       const downloadInfo = {
         title: data.fileMetaData?.title,
         imageUrl: data.thumbnail_url,
