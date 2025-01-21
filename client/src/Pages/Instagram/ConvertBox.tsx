@@ -97,7 +97,7 @@ export default function ConvertBox(props: Props) {
                 isLoading={isLoading}
                 as="a"
   target="_blank"
-                href={data.thumbnail_url ?? data.url}
+                href={data.url}
                 variant='solid'>
                 {data.format == 'MP4' ? 'Download' : 'Download MP3' }
               </Button>
