@@ -15,6 +15,7 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import { formatDownloadLabel, formats } from './utils/helpers';
+import { useState } from 'react';
 
 interface Props {
   data: any;
@@ -22,9 +23,15 @@ interface Props {
 }
 export default function ConvertBox(props: Props) {
   const { data, chooseFormat } = props;
+  const [isDownloading, setIsDownloading] = useState(false); // State untuk mengontrol teks tombol
 
   const handleDownload = () => {
+    setIsDownloading(true); // Set state menjadi true untuk menampilkan "Downloading..."
     chooseFormat(data);
+
+    setTimeout(() => {
+      setIsDownloading(false);
+    }, 10000); // 10 detik
   };
   return (
     <Box
@@ -48,8 +55,14 @@ export default function ConvertBox(props: Props) {
             <Box p="0.5">
               <Heading size="sm">{data.fileMetaData?.title}</Heading>
               <Text mb="5" size="sm">{data.fileMetaData?.artist}</Text>
-              <Button leftIcon={<DownloadIcon />} onClick={handleDownload} variant='solid'>
-                Download {formatDownloadLabel(data.format)}
+              <Button
+                leftIcon={<DownloadIcon />}
+                onClick={handleDownload}
+                variant='solid'
+                isLoading={isDownloading} // Menampilkan spinner saat downloading
+                loadingText="Downloading..." // Teks yang ditampilkan saat downloading
+              >
+                {isDownloading ? "Downloading..." : `Download ${formatDownloadLabel(data.format)}`}
               </Button>
             </Box>
           </Grid>
