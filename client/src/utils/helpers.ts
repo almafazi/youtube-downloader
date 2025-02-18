@@ -37,7 +37,7 @@ export const formatDownloadLabel = (format: string) => {
  */
 export const host = isLocalHost
   ? 'http://localhost:3056/'
-  : `https://yt.y2mate.one/`;
+  : `https://yt-dlp.y2mate.one/`;
 
 /**
  * Get download-url from YouTube-Video.
