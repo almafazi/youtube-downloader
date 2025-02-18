@@ -49,12 +49,12 @@ export default function ConvertBox(props: Props) {
             <Image
               borderRadius="sm"
               src={data.thumbnail_url}
-              alt={`Thumbnail of ${data.fileMetaData?.title}`}
+              alt={`Thumbnail of ${data.data?.title}`}
               width={{ base: '100%', md: 'auto' }} // Adjust width for mobile
             />
             <Box p="0.5">
-              <Heading size="sm">{data.fileMetaData?.title}</Heading>
-              <Text mb="5" size="sm">{data.fileMetaData?.artist}</Text>
+              <Heading size="sm">{data.data?.title}</Heading>
+              <Text mb="5" size="sm">{data.data?.author}</Text>
               <Button
                 leftIcon={<DownloadIcon />}
                 onClick={handleDownload}

@@ -30,7 +30,7 @@ import PreviewBox from './PreviewBox';
 import SelectFormat from './SelectFormat';
 import Sidebar, { HistoryItem } from './Sidebar';
 import Suggestions from './Suggestions';
-import { fetchInfo, getInfos, getSearch, getSuggestions } from './utils/API';
+import { fetchInfo, fetchInfoYoutube, getInfos, getSearch, getSuggestions } from './utils/API';
 import { getDownloadUrl, isYtUrl } from './utils/helpers';
 import { useTranslation } from 'react-i18next';
 import Article from './Article';
@@ -70,7 +70,9 @@ export default function Main() {
   useEffect(() => {
     if (downloadUrl.length && downloadBtnRef?.current) {
       setConvertionLoading(false);
-      downloadBtnRef.current.click();
+      window.open(downloadUrl, '_blank');
+
+      //downloadBtnRef.current.click();
     }
   }, [downloadUrl]);
 
@@ -208,13 +210,9 @@ export default function Main() {
         // const response = await fetch('/dummy.json');
         // const data = await response.json();
         const formData = {
-          downloadMode: format.startsWith('MP3') ? "audio" : "auto", // Audio if MP3, auto for video
-          url: input,
-          youtubeHLS: true,
-          videoQuality: format.startsWith('MP4') ? format.split('-')[1] : "720", // Set video quality if MP4, else default to 720
-          audioBitrate: format.startsWith('MP3') ? format.split('-')[1] : "320" // Set bitrate if MP3, else default to 320
+          id: getYouTubeId(input)
         };
-        const { data } = await fetchInfo(formData);
+        const { data } = await fetchInfoYoutube(formData);
         setYouTubeId(getYouTubeId(input));
         data.thumbnail_url = `https://img.youtube.com/vi/${getYouTubeId(input)}/mqdefault.jpg`;
         data.format = format;
@@ -245,19 +243,50 @@ export default function Main() {
   const chooseFormat = async (data: any) => {
     setDownloadUrl('');
     try {
-      setDownloadUrl(data.metadata?.externalDownloadUrl ?? data.url);
-      const downloadInfo = {
-        title: data.fileMetaData?.title,
-        imageUrl: data.thumbnail_url,
-        videoLength: "0",
-        format,
-        date: new Date(),
-      };
-      setDownloads((prevState) => [...prevState, downloadInfo]);
+        let downloadLink = '';
+
+        // Check if the format is an audio format (MP3)
+        if (data.format.startsWith('MP3-')) {
+            const quality = data.format.split('-')[1]; // Extract quality (128, 192, 320)
+            const audioDownload = data.download_url.audio.find(
+                (audio: any) => audio.quality === quality
+            );
+            
+            if (audioDownload) {
+                downloadLink = audioDownload.url;
+            }
+        } 
+        // Check if the format is a video format (MP4)
+        else if (data.format.startsWith('MP4-')) {
+            const quality = data.format.split('-')[1]; // Extract quality (320, 480, 720, 1080)
+            const videoDownload = data.download_url.video.find(
+                (video: any) => video.quality === quality
+            );
+            
+            if (videoDownload) {
+                downloadLink = videoDownload.url;
+            }
+        }
+
+        console.log('downloadlink', downloadLink)
+        // Set the download URL
+        setDownloadUrl(downloadLink);
+
+        // Prepare download info
+        const downloadInfo = {
+            title: data.data.title,
+            imageUrl: data.thumbnail_url,
+            videoLength: data.data.duration || "0",
+            format: data.format,
+            date: new Date(),
+        };
+
+        // Add to downloads
+        setDownloads((prevState) => [...prevState, downloadInfo]);
     } catch (err) {
-      setError(true);
+        setError(true);
     }
-  };
+};
 
   const handleDeleteHistory = () => {
     localStorage.removeItem('downloads');

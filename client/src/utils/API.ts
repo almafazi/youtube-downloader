@@ -31,6 +31,10 @@ export const fetchInfo = async (formData: { downloadMode: string, url: string })
   return await API.post(`/`, formData);
 };
 
+export const fetchInfoYoutube = async (formData: { id: string | null }) => {
+  return await API.post(`/fetch`, formData);
+};
+
 export const renderTiktokVideo = async (formData: { audio: string, images: Array<any> }) => {
   return await API.post(`/render-tiktok-video`, formData);
 };
