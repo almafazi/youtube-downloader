@@ -36,7 +36,7 @@ export const formatDownloadLabel = (format: string) => {
  * Get the current host.
  */
 export const host = isLocalHost
-  ? 'http://localhost:3056/'
+  ? 'http://localhost:3017/'
   : `https://yt-dlp.y2mate.one/`;
 
 /**
