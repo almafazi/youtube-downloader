@@ -73,7 +73,8 @@ export default function Main() {
   useEffect(() => {
     if (downloadUrl.length && downloadBtnRef?.current) {
       setConvertionLoading(false);
-      downloadBtnRef.current.click();
+      // window.open(downloadUrl, '_blank'); // Open downloadUrl in a new tab
+      //downloadBtnRef.current.click();
     }
   }, [downloadUrl]);
 
@@ -203,7 +204,8 @@ export default function Main() {
           url: input
         };
         const { data } = await fetchInfo(formData);
-        data.thumbnail_url = data.metadata?.cover;
+   
+        data.thumbnail_url = data.cover;
         data.picker = data.picker;
         data.format = format;
         setCurrentVideo(data);
@@ -237,12 +239,11 @@ export default function Main() {
   const chooseFormat = async (data: any) => {
     setDownloadUrl('');
     try {
-      console.log(data)
-      setDownloadUrl(data.url);
+      setDownloadUrl(data.download_url);
       const downloadInfo = {
-        title: data.metadata?.title,
-        imageUrl: data.thumbnail_url,
-        videoLength: data.duration,
+        title: data.title,
+        imageUrl: data.cover,
+        videoLength: data.music_duration ?? 0,
         format,
         date: new Date(),
       };

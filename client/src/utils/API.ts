@@ -28,7 +28,7 @@ export const getInfos = async (url: string) => {
 };
 
 export const fetchInfo = async (formData: { downloadMode: string, url: string }) => {
-  return await API.post(`/`, formData);
+  return await API.post(`/tiktok`, formData);
 };
 
 export const renderTiktokVideo = async (formData: { audio: string, images: Array<any> }) => {

@@ -26,7 +26,7 @@ const Search = (props: Props) => {
     <Box mt="2" mb="2">
   <Flex 
     gridGap="2" 
-    direction={['column', 'row']} // Column layout on mobile, row layout on desktop
+    direction={['row', 'row']} // Column layout on mobile, row layout on desktop
   >
     <Input
       isInvalid={error}
@@ -37,20 +37,20 @@ const Search = (props: Props) => {
     />
     
     {/* Wrap Select and Button in a Flex container */}
-    <Flex 
+    {/* <Flex 
       width={['100%', 'auto']}
       justify={['space-between', 'space-between']} // Justify space between on mobile, default for desktop
       mt={['2', '0']} // Add margin top only on mobile
       gridGap={['2', '2']} // Add space between items on mobile, no gap on desktop
-    >
-      <Select 
+    > */}
+      {/* <Select 
         value={format} 
         onChange={handleFormatChange} 
         width={['65%', '200px']} // 48% width on mobile (to ensure both fit), 120px on desktop
       >
         <option value="MP4">MP4 No Watermark</option>
         <option value="MP3">MP3</option>
-      </Select>
+      </Select> */}
       
       <Button
         px={6}
@@ -62,7 +62,7 @@ const Search = (props: Props) => {
         Download
       </Button>
     </Flex>
-  </Flex>
+  {/* </Flex> */}
 </Box>
 
   );
