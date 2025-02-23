@@ -25,7 +25,7 @@ export const isLocalHost = window.location.hostname === 'localhost';
  */
 export const host = isLocalHost
   ? 'http://localhost:3039/'
-  : `https://yt.y2mate.one/`;
+  : `https://savefrom.snapvid.site/`;
 
 /**
  * Get download-url from YouTube-Video.
