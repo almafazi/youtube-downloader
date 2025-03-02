@@ -70,7 +70,7 @@ export default function Main() {
   useEffect(() => {
     if (downloadUrl.length && downloadBtnRef?.current) {
       setConvertionLoading(false);
-      window.open(downloadUrl);
+      //window.open(downloadUrl);
 
       //downloadBtnRef.current.click();
     }

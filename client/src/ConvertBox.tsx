@@ -33,6 +33,35 @@ export default function ConvertBox(props: Props) {
       setIsDownloading(false);
     }, 10000); // 10 detik
   };
+
+  const getDownloadUrl = (data: any): string => {
+    let downloadLink = '';
+
+    // Check if the format is an audio format (MP3)
+    if (data.format.startsWith('MP3-')) {
+        const quality = data.format.split('-')[1]; // Extract quality (128, 192, 320)
+        const audioDownload = data.download_url.audio.find(
+            (audio: any) => audio.quality === quality
+        );
+        
+        if (audioDownload) {
+            downloadLink = audioDownload.url;
+        }
+    } 
+    // Check if the format is a video format (MP4)
+    else if (data.format.startsWith('MP4-')) {
+        const quality = data.format.split('-')[1]; // Extract quality (320, 480, 720, 1080)
+        const videoDownload = data.download_url.video.find(
+            (video: any) => video.quality === quality
+        );
+        
+        if (videoDownload) {
+            downloadLink = videoDownload.url;
+        }
+    }
+
+    return downloadLink;
+  }
   return (
     <Box
       borderRadius="lg"
@@ -56,9 +85,11 @@ export default function ConvertBox(props: Props) {
               <Heading size="sm">{data.data?.title}</Heading>
               <Text mb="5" size="sm">{data.data?.author}</Text>
               <Button
+                as={'a'}
                 leftIcon={<DownloadIcon />}
                 onClick={handleDownload}
                 variant='solid'
+                href={getDownloadUrl(data)}
                 isLoading={isDownloading} // Menampilkan spinner saat downloading
                 loadingText="Downloading..." // Teks yang ditampilkan saat downloading
               >
