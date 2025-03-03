@@ -13,6 +13,14 @@ import {
   MenuList,
   Stack,
   useBreakpointValue,
+  Modal, // Import Modal components
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure, // Import useDisclosure
 } from '@chakra-ui/react';
 import { formatDownloadLabel, formats } from './utils/helpers';
 import { useState } from 'react';
@@ -21,17 +29,30 @@ interface Props {
   data: any;
   chooseFormat: (data: any) => void;
 }
+
 export default function ConvertBox(props: Props) {
   const { data, chooseFormat } = props;
   const [isDownloading, setIsDownloading] = useState(false); // State untuk mengontrol teks tombol
+  const { isOpen, onOpen, onClose } = useDisclosure(); // Hook for modal control
+  const [downloadUrl, setDownloadUrl] = useState('');
 
-  const handleDownload = () => {
+
+  const handleDownload = () => {    
     setIsDownloading(true); // Set state menjadi true untuk menampilkan "Downloading..."
     chooseFormat(data);
 
-    setTimeout(() => {
-      setIsDownloading(false);
-    }, 10000); // 10 detik
+      const url = getDownloadUrl(data);
+      if (url) {
+        setDownloadUrl(url); // Set the URL to be displayed in the iframe
+        onOpen(); // Open the modal
+      }
+      setIsDownloading(true);
+      //chooseFormat(data);  //  Removed/Commented out this as it likely isn't needed with the iframe approach
+
+      setTimeout(() => {
+        setIsDownloading(false);
+           // onClose(); Don't close here, let user close the modal manually.
+      }, 10000); // 10 detik
   };
 
   const getDownloadUrl = (data: any): string => {
@@ -43,18 +64,18 @@ export default function ConvertBox(props: Props) {
         const audioDownload = data.download_url.audio.find(
             (audio: any) => audio.quality === quality
         );
-        
+
         if (audioDownload) {
             downloadLink = audioDownload.url;
         }
-    } 
+    }
     // Check if the format is a video format (MP4)
     else if (data.format.startsWith('MP4-')) {
         const quality = data.format.split('-')[1]; // Extract quality (320, 480, 720, 1080)
         const videoDownload = data.download_url.video.find(
             (video: any) => video.quality === quality
         );
-        
+
         if (videoDownload) {
             downloadLink = videoDownload.url;
         }
@@ -85,19 +106,52 @@ export default function ConvertBox(props: Props) {
               <Heading size="sm">{data.data?.title}</Heading>
               <Text mb="5" size="sm">{data.data?.author}</Text>
               <Button
-                as={'a'}
+                //as={'a'}  Remove the 'as' and 'href'
                 leftIcon={<DownloadIcon />}
                 onClick={handleDownload}
                 variant='solid'
-                href={getDownloadUrl(data)}
+                //href={getDownloadUrl(data)} Remove href
                 isLoading={isDownloading} // Menampilkan spinner saat downloading
                 loadingText="Downloading..." // Teks yang ditampilkan saat downloading
               >
+                {/* No longer need the conditional text, but kept for consistency */}
                 {isDownloading ? "Downloading..." : `Download ${formatDownloadLabel(data.format)}`}
               </Button>
             </Box>
           </Grid>
         </Box>
+
+        {/* Modal for the iframe */}
+      <Modal isOpen={isOpen} onClose={onClose} size={'lg'}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Download {formatDownloadLabel(data.format)}</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <iframe
+              src={downloadUrl}
+              style={{ width: '100%', height: '350px' }} // Adjust height as needed
+              title="Download Content"
+            />
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme="blue" mr={3} onClick={onClose}>
+              Close
+            </Button>
+            {/* Optional: Add a direct download button in the footer as well */}
+             <Button
+                as="a"
+                href={downloadUrl}
+                colorScheme="green"
+                target="_blank" // Open in a new tab for direct download
+                rel="noopener noreferrer"
+              >
+                Direct Download
+             </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 }
