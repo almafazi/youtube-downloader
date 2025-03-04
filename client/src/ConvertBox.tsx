@@ -137,9 +137,9 @@ export default function ConvertBox(props: Props) {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            {/* <Button colorScheme="blue" mr={3} onClick={onClose}>
               Close
-            </Button>
+            </Button> */}
             {/* Optional: Add a direct download button in the footer as well */}
              {/* <Button
                 as="a"
