@@ -35,10 +35,12 @@ export default function ConvertBox(props: Props) {
   const [isDownloading, setIsDownloading] = useState(false); // State untuk mengontrol teks tombol
   const { isOpen, onOpen, onClose } = useDisclosure(); // Hook for modal control
   const [downloadUrl, setDownloadUrl] = useState('');
+  const [downloadComplete, setDownloadComplete] = useState(false); // NEW: State for download completion
 
 
   const handleDownload = () => {    
     setIsDownloading(true); // Set state menjadi true untuk menampilkan "Downloading..."
+    setDownloadComplete(false); // Reset download completion status
     chooseFormat(data);
 
       const url = getDownloadUrl(data);
@@ -51,8 +53,9 @@ export default function ConvertBox(props: Props) {
 
       setTimeout(() => {
         setIsDownloading(false);
+        setDownloadComplete(true); // Set download completion to true after the timeout
            // onClose(); Don't close here, let user close the modal manually.
-      }, 10000); // 10 detik
+      }, 2000); // 10 detik
   };
 
   const getDownloadUrl = (data: any): string => {
@@ -106,16 +109,14 @@ export default function ConvertBox(props: Props) {
               <Heading size="sm">{data.data?.title}</Heading>
               <Text mb="5" size="sm">{data.data?.author}</Text>
               <Button
-                //as={'a'}  Remove the 'as' and 'href'
-                leftIcon={<DownloadIcon />}
+                leftIcon={downloadComplete ? <></> : <DownloadIcon />}
                 onClick={handleDownload}
                 variant='solid'
-                //href={getDownloadUrl(data)} Remove href
-                isLoading={isDownloading} // Menampilkan spinner saat downloading
-                loadingText="Downloading..." // Teks yang ditampilkan saat downloading
+                isLoading={isDownloading}
+                loadingText="Downloading..."
+                isDisabled={downloadComplete}
               >
-                {/* No longer need the conditional text, but kept for consistency */}
-                {isDownloading ? "Downloading..." : `Download ${formatDownloadLabel(data.format)}`}
+                {isDownloading ? "Downloading..." : (downloadComplete ? "Download Complete" : `Download ${formatDownloadLabel(data.format)}`)}
               </Button>
             </Box>
           </Grid>
@@ -140,7 +141,7 @@ export default function ConvertBox(props: Props) {
               Close
             </Button>
             {/* Optional: Add a direct download button in the footer as well */}
-             <Button
+             {/* <Button
                 as="a"
                 href={downloadUrl}
                 colorScheme="green"
@@ -148,7 +149,7 @@ export default function ConvertBox(props: Props) {
                 rel="noopener noreferrer"
               >
                 Direct Download
-             </Button>
+             </Button> */}
           </ModalFooter>
         </ModalContent>
       </Modal>
